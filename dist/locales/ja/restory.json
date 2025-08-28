@@ -1,0 +1,28 @@
+{
+  "restory": {
+    "title": "ストーリーチェーン ReStoryChain™",
+    "subtitle": "あなたの物語は保存される価値があります。もし望むなら、それはブロックチェーン上のノードに永遠に残ります。同情を求めるためではなく、あなたが本当に乗り越えたことを世界に知らせるためです。",
+    "form": {
+      "title": "ストリータイトル",
+      "content": "ストリー内容",
+      "select_tag": "カテゴリを選択してください",
+      "visibility": "誰がこのストーリーを見られますか？",
+      "visibility_private": "自分だけ",
+      "visibility_friends": "友達のみ",
+      "visibility_public": "全員",
+      "confirm_onchain": "✔ この証言をブロックチェーンに保存することに同意します",
+      "submit": "ストーリーを送信"
+    },
+    "card": {
+      "onchain": "🔗 保存済み",
+      "tag": "カテゴリ：",
+      "delete": "ストーリーを削除",
+      "confirm_delete": "このストーリーを削除してもよろしいですか？（削除後は元に戻せません）"
+    },
+    "empty_state": "公開ストーリーはまだありません",
+    "success_submit": "ストーリーが正常に送信されました！",
+    "success_delete": "ストーリーが正常に削除されました",
+    "error_submit": "送信に失敗しました。後でもう一度お試しください",
+    "error_delete": "削除に失敗しました。後でもう一度お試しください"
+  }
+} 

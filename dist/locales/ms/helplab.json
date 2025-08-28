@@ -1,0 +1,85 @@
+{
+  "helplab": {
+    "sections": {
+      "provide": {
+        "title": "Saya boleh menyediakan bilik bantuan & kerjasama",
+        "desc": "Kongsi kepakaran, sumber atau bidang yang anda ingin bekerjasama, supaya lebih ramai orang dapat mencari anda.",
+        "btn": "Saya ingin menyediakan"
+      },
+      "need": {
+        "title": "Saya memerlukan bantuan atau rumah kerjasama",
+        "desc": "Beritahu kami tentang kesukaran yang anda hadapi atau rakan kongsi yang anda ingin cari, supaya komuniti dapat menyokong anda.",
+        "btn": "Saya memerlukan bantuan"
+      },
+      "supply": {
+        "title": "Bulatan bekalan bantuan & kerjasama",
+        "desc": "Semak imbas sumber bantuan dan kerjasama yang semua orang boleh sediakan, hubungi antara satu sama lain secara aktif.",
+        "btn": "Jelajah bulatan bekalan"
+      },
+      "room": {
+        "title": "Masuk bilik bantuan bersama",
+        "desc": "Komunikasi masa nyata, pertumbuhan bersama",
+        "btn": "Masuk bilik bantuan bersama"
+      }
+    },
+    "modals": {
+      "provide": {
+        "title": "Saya boleh menyediakan bantuan & kerjasama",
+        "subtitle": "Dalam perjalanan memulakan semula, pengalaman dan kelebihan saya mungkin boleh membantu!",
+        "experience": "Pengalaman saya (pilihan berganda):",
+        "current": "Keadaan semasa saya (pilihan berganda):",
+        "target": "Orang yang saya ingin bantu terlebih dahulu (pilihan berganda):",
+        "helpType": "Saya boleh menyediakan bantuan dalam bentuk:",
+        "statement": "Pernyataan khas saya (dalam 50 aksara):",
+        "frequency": "Kekerapan saya boleh membantu:",
+        "cancel": "Batal",
+        "submit": "Hantar",
+        "other": "Lain-lain...",
+        "enterPlaceholder": "Sila masukkan...",
+        "messageTo": "Mesej kepada:",
+        "messagePlaceholder": "Sila masukkan mesej...",
+        "sendMessage": "Hantar mesej",
+        "messageSent": "Permintaan berjaya dihantar!"
+      },
+      "need": {
+        "title": "Saya memerlukan bantuan",
+        "subtitle": "Sila terangkan kesukaran yang anda hadapi atau bidang yang memerlukan bantuan, supaya rakan kongsi komuniti dapat membantu anda dengan lebih baik!",
+        "experience": "Pengalaman saya (pilihan berganda):",
+        "current": "Keadaan semasa saya (pilihan berganda):",
+        "target": "Orang yang saya ingin bantu terlebih dahulu (pilihan berganda):",
+        "helpType": "Saya boleh menyediakan bantuan dalam bentuk:",
+        "statement": "Pernyataan khas saya (dalam 50 aksara):",
+        "frequency": "Kekerapan saya boleh membantu:",
+        "cancel": "Batal",
+        "submit": "Hantar",
+        "other": "Lain-lain...",
+        "enterPlaceholder": "Sila masukkan...",
+        "messageTo": "Mesej kepada:",
+        "messagePlaceholder": "Sila masukkan mesej...",
+        "sendMessage": "Hantar mesej",
+        "messageSent": "Permintaan berjaya dihantar!"
+      }
+    },
+    "options": {
+      "experience": ["Keusahawanan berjaya", "Pembinaan semula keluarga", "Bimbingan pekerjaan", "Bantuan undang-undang", "Pengalaman pemulihan ketagihan", "Sukarelawan", "Perkhidmatan komuniti", "Lain-lain"],
+      "advantage": ["Kesukaran kewangan", "Tiada pekerjaan tetap", "Kekurangan sokongan keluarga", "Masalah kesihatan", "Pertikaian undang-undang", "Tekanan psikologi", "Kekurangan tempat tinggal", "Kesukaran hubungan interpersonal", "Sedang memulakan perniagaan", "Lain-lain"],
+      "target": ["Mencari kerja/bantuan pekerjaan", "Bantuan kewangan kecemasan", "Kaunseling psikologi/teman", "Bantuan undang-undang", "Bantuan perubatan", "Bantuan tempat tinggal", "Pembaikan keluarga", "Sokongan ketagihan", "Bantuan hubungan interpersonal", "Pembinaan semula kehidupan", "Bimbingan perniagaan", "Lain-lain"],
+      "helpType": ["Dalam talian", "Luar talian"],
+      "frequency": ["Setiap hari", "Setiap minggu", "Setiap bulan", "Mengikut keperluan", "Lain-lain"]
+    },
+    "tabs": {
+      "provide": "Sediakan bantuan",
+      "supply": "Bulatan bekalan",
+      "need": "Memerlukan bantuan",
+      "room": "Bilik bantuan bersama"
+    },
+    "messages": {
+      "messageSent": "Mesej berjaya dihantar!",
+      "messageFailed": "Penghantaran mesej gagal, sila cuba lagi kemudian",
+      "noMessages": "Tiada mesej lagi",
+      "markRead": "Tandakan sebagai dibaca",
+      "delete": "Padam",
+      "confirmDelete": "Adakah anda pasti mahu memadamkan mesej ini? (Sebaik sahaja dipadamkan, ia tidak dapat dipulihkan)"
+    }
+  }
+} 

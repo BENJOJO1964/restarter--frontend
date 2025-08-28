@@ -1,0 +1,28 @@
+{
+  "restory": {
+    "title": "故事鏈 ReStoryChain™",
+    "subtitle": "你的故事值得被封存。如果你願意，它將永遠存在某個區塊鏈節點上，不是為了討拍，而是讓世界知道：你真的走過來了。",
+    "form": {
+      "title": "故事標題",
+      "content": "故事內容",
+      "select_tag": "請選擇一個分類",
+      "visibility": "誰可以看到這段故事？",
+      "visibility_private": "只有我",
+      "visibility_friends": "好友可見",
+      "visibility_public": "所有人",
+      "confirm_onchain": "✔ 我願意將這段見證封存於區塊鏈",
+      "submit": "送出故事"
+    },
+    "card": {
+      "onchain": "🔗 已封存",
+      "tag": "分類標籤：",
+      "delete": "刪除故事",
+      "confirm_delete": "你確定要刪除這篇故事嗎？（一旦刪除將無法復原）"
+    },
+    "empty_state": "目前尚無公開故事",
+    "success_submit": "故事已成功提交！",
+    "success_delete": "故事已成功刪除",
+    "error_submit": "提交失敗，請稍後重試",
+    "error_delete": "刪除失敗，請稍後重試"
+  }
+} 

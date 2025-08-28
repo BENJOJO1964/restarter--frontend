@@ -1,0 +1,393 @@
+/* Landing Page 專用樣式 */
+
+/* 確保所有文字可見 */
+.landing-bg {
+  color: #ffffff;
+}
+
+/* 廣告頁面專用樣式 */
+.ad-landing-page {
+  color: #ffffff !important;
+}
+
+.ad-landing-page h1,
+.ad-landing-page h2,
+.ad-landing-page h3,
+.ad-landing-page h4,
+.ad-landing-page h5,
+.ad-landing-page h6,
+.ad-landing-page p,
+.ad-landing-page span,
+.ad-landing-page div {
+  color: #ffffff !important;
+  font-weight: normal !important;
+}
+
+.landing-bg h1, .landing-bg h2, .landing-bg h3, .landing-bg h4, .landing-bg h5, .landing-bg h6 {
+  color: #ffffff;
+}
+
+.landing-bg p {
+  color: #e5e7eb;
+}
+
+.landing-bg span {
+  color: inherit;
+}
+
+/* 確保所有內容居中對齊 */
+.landing-bg section {
+  text-align: center;
+}
+
+.landing-bg .max-w-4xl,
+.landing-bg .max-w-6xl {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 修復互動式問卷的點擊區域 */
+.landing-bg button {
+  cursor: pointer;
+  user-select: none;
+}
+
+.landing-bg button:hover {
+  transform: scale(1.05);
+}
+
+/* 確保CTA按鈕正常工作 */
+.cta-button {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+/* 自定義動畫 */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(147, 51, 234, 0.5); }
+  50% { box-shadow: 0 0 40px rgba(147, 51, 234, 0.8); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(147, 51, 234, 0.6);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes text-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 背景效果 */
+.landing-bg {
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(147, 51, 234, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+  animation: float 6s ease-in-out infinite;
+}
+
+/* 文字效果 */
+.hero-title {
+  background: linear-gradient(45deg, #a855f7, #ec4899, #ef4444, #f97316, #eab308, #22c55e, #3b82f6, #8b5cf6);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: text-shimmer 3s ease-in-out infinite;
+  color: #ffffff; /* 確保文字可見 */
+}
+
+.fear-trigger {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.hope-trigger {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* 卡片效果 */
+.psychology-card {
+  background: linear-gradient(135deg, rgba(31, 41, 55, 0.8) 0%, rgba(17, 24, 39, 0.9) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(147, 51, 234, 0.2);
+  transition: all 0.3s ease;
+}
+
+.psychology-card:hover {
+  border-color: rgba(147, 51, 234, 0.6);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(147, 51, 234, 0.2);
+}
+
+/* 按鈕效果 */
+.cta-button {
+  background: linear-gradient(45deg, #f97316, #ea580c);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.4);
+}
+
+/* 統計數字動畫 */
+.stat-number {
+  animation: fade-in-up 1s ease-out;
+}
+
+.stat-number.animate {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* 見證卡片 */
+.testimonial-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(34, 197, 94, 0.3);
+  box-shadow: 0 20px 40px rgba(34, 197, 94, 0.1);
+}
+
+/* 功能特色卡片 */
+.feature-card {
+  background: linear-gradient(135deg, rgba(31, 41, 55, 0.8) 0%, rgba(17, 24, 39, 0.9) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(147, 51, 234, 0.2);
+  transition: all 0.4s ease;
+}
+
+.feature-card:hover {
+  border-color: rgba(147, 51, 234, 0.6);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 25px 50px rgba(147, 51, 234, 0.3);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* 緊急感區域 */
+.urgency-section {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(251, 146, 60, 0.2) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.urgency-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(239,68,68,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  animation: float 4s ease-in-out infinite;
+}
+
+/* 創辦人故事區域 */
+.founder-story {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.founder-story::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);
+  border-radius: 1rem;
+  z-index: -1;
+  opacity: 0.3;
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* 滾動指示器 */
+.scroll-indicator {
+  animation: bounce 2s infinite;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem !important;
+  }
+  
+  .psychology-card {
+    margin-bottom: 1rem;
+  }
+  
+  .feature-card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* 深色模式優化 */
+@media (prefers-color-scheme: dark) {
+  .landing-bg {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+  }
+}
+
+/* 無障礙設計 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 高對比度模式 */
+@media (prefers-contrast: high) {
+  .psychology-card,
+  .feature-card,
+  .testimonial-card {
+    border-width: 2px;
+  }
+  
+  .cta-button {
+    border: 2px solid white;
+  }
+}
+
+/* 回到頂部按鈕樣式 */
+.scroll-to-top-button {
+  position: fixed;
+  background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 99999;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  border: 2px solid rgba(255,255,255,0.5);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+/* 默認大小和位置 */
+.scroll-to-top-button:not(.w-10):not(.w-12):not(.w-16) {
+  width: 60px;
+  height: 60px;
+  bottom: 32px;
+  right: 32px;
+}
+
+.scroll-to-top-button:hover {
+  background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+  transform: scale(1.1) translateY(0);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+}
+
+.scroll-to-top-button:active {
+  transform: scale(0.95) translateY(0);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 打印樣式 */
+@media print {
+  .landing-bg {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .cta-button,
+  .scroll-indicator,
+  .scroll-to-top-button {
+    display: none !important;
+  }
+}

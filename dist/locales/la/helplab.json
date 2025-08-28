@@ -1,0 +1,85 @@
+{
+  "helplab": {
+    "sections": {
+      "provide": {
+        "title": "Possum praebere auxilium & cooperationis cubiculum",
+        "desc": "Partiri peritiam, opes vel regiones quas cooperari vis, ut plures te invenire possint.",
+        "btn": "Volo praebere"
+      },
+      "need": {
+        "title": "Egeo auxilii vel cooperationis domus",
+        "desc": "Dic nobis de difficultatibus quas nunc patieris vel sociis quos quaeris, ut communitas te sustentare possit.",
+        "btn": "Egeo auxilii"
+      },
+      "supply": {
+        "title": "Auxilii & cooperationis copiae circulus",
+        "desc": "Perlustra auxilii et cooperationis opes quas omnes praebere possunt, active inter se communicare.",
+        "btn": "Explora copiae circulum"
+      },
+      "room": {
+        "title": "Intra mutuum auxilium cubiculum",
+        "desc": "Temporis realis communicatio, mutuus incrementum",
+        "btn": "Intra mutuum auxilium cubiculum"
+      }
+    },
+    "modals": {
+      "provide": {
+        "title": "Possum praebere auxilium & cooperationem",
+        "subtitle": "In itinere redintegrationis, mea experientia et commoda forsitan prodesse possunt!",
+        "experience": "Mea experientia (multiplex electio):",
+        "current": "Mea praesens condicio (multiplex electio):",
+        "target": "Homines quos primum adiuvare volo (multiplex electio):",
+        "helpType": "Possum praebere auxilium in forma:",
+        "statement": "Mea specialis declaratio (intra 50 characteres):",
+        "frequency": "Mea auxilii frequentia:",
+        "cancel": "Cancella",
+        "submit": "Submitte",
+        "other": "Alia...",
+        "enterPlaceholder": "Quaeso intra...",
+        "messageTo": "Nuntius ad:",
+        "messagePlaceholder": "Quaeso intra nuntium...",
+        "sendMessage": "Mitte nuntium",
+        "messageSent": "Petitio feliciter missa est!"
+      },
+      "need": {
+        "title": "Egeo auxilii",
+        "subtitle": "Quaeso describe difficultates quas patieris vel regiones quae auxilio indigent, ut socii communitatis te melius adiuvare possint!",
+        "experience": "Mea experientia (multiplex electio):",
+        "current": "Mea praesens condicio (multiplex electio):",
+        "target": "Homines quos primum adiuvare volo (multiplex electio):",
+        "helpType": "Possum praebere auxilium in forma:",
+        "statement": "Mea specialis declaratio (intra 50 characteres):",
+        "frequency": "Mea auxilii frequentia:",
+        "cancel": "Cancella",
+        "submit": "Submitte",
+        "other": "Alia...",
+        "enterPlaceholder": "Quaeso intra...",
+        "messageTo": "Nuntius ad:",
+        "messagePlaceholder": "Quaeso intra nuntium...",
+        "sendMessage": "Mitte nuntium",
+        "messageSent": "Petitio feliciter missa est!"
+      }
+    },
+    "options": {
+      "experience": ["Felix initium negotii", "Familiae reconstructio", "Orientatio laboris", "Auxilium legale", "Experientia liberationis ab addictione", "Voluntarius", "Servitium communitatis", "Alia"],
+      "advantage": ["Difficultates oeconomicae", "Nullus labor fixus", "Defectus sustentationis familiae", "Problema sanitatis", "Controversia legalis", "Pressura psychologica", "Defectus habitationis", "Difficultates relationum", "Nunc initium negotii faciens", "Alia"],
+      "target": ["Quaerere laborem/auxilium laboris", "Auxilium oeconomicum urgentis", "Consilium psychologicum/societas", "Auxilium legale", "Auxilium medicum", "Auxilium habitationis", "Reparatio familiae", "Sustentatio liberationis", "Auxilium relationum", "Reconstructio vitae", "Orientatio negotii", "Alia"],
+      "helpType": ["Online", "Offline"],
+      "frequency": ["Quotidie", "Quot hebdomadis", "Quot mensibus", "Secundum necessitatem", "Alia"]
+    },
+    "tabs": {
+      "provide": "Praebere auxilium",
+      "supply": "Copiae circulus",
+      "need": "Egere auxilii",
+      "room": "Mutuum auxilium cubiculum"
+    },
+    "messages": {
+      "messageSent": "Nuntius feliciter missus est!",
+      "messageFailed": "Missio nuntii defecit, quaeso postea denuo tenta",
+      "noMessages": "Nondum nuntii",
+      "markRead": "Nota ut lectum",
+      "delete": "Dele",
+      "confirmDelete": "Esne certus hunc nuntium delere velle? (Semel deletus, restitui non potest)"
+    }
+  }
+} 

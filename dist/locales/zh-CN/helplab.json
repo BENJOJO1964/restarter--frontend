@@ -1,0 +1,85 @@
+{
+  "helplab": {
+    "sections": {
+      "provide": {
+        "title": "我可提供帮助 & 合作室",
+        "desc": "分享你的专长、资源或想合作的领域，让更多人找到你。",
+        "btn": "我要提供"
+      },
+      "need": {
+        "title": "我需要帮助 or 合作屋",
+        "desc": "说出你目前遇到的困难或想找合作伙伴，让社群支援你。",
+        "btn": "我需要帮助"
+      },
+      "supply": {
+        "title": "帮助 & 合作供应圈",
+        "desc": "浏览大家能提供的帮助与合作资源，主动联系彼此。",
+        "btn": "探索供应圈"
+      },
+      "room": {
+        "title": "进入互助房",
+        "desc": "即时交流，互助成长",
+        "btn": "进入互助房"
+      }
+    },
+    "modals": {
+      "provide": {
+        "title": "我可以提供帮助 & 合作",
+        "subtitle": "在重启路上，我的经历和优势也许可以帮上忙！",
+        "experience": "我的经历（可复选）：",
+        "current": "我的现状(可复选)：",
+        "target": "我想优先帮助的对象（可复选）：",
+        "helpType": "我可以提供帮助形式：",
+        "statement": "我的特别声明（50字内）：",
+        "frequency": "我可帮助的频率：",
+        "cancel": "取消",
+        "submit": "送出",
+        "other": "其他...",
+        "enterPlaceholder": "请输入...",
+        "messageTo": "留言给：",
+        "messagePlaceholder": "请输入留言...",
+        "sendMessage": "送出留言",
+        "messageSent": "需求已成功送出！"
+      },
+      "need": {
+        "title": "我需要帮助",
+        "subtitle": "请描述你遇到的困难或需要协助的地方，让社群伙伴能更好帮助你！",
+        "experience": "我的经历（可复选）：",
+        "current": "我的现状(可复选)：",
+        "target": "我想优先帮助的对象（可复选）：",
+        "helpType": "我可以提供帮助形式：",
+        "statement": "我的特别声明（50字内）：",
+        "frequency": "我可帮助的频率：",
+        "cancel": "取消",
+        "submit": "送出",
+        "other": "其他...",
+        "enterPlaceholder": "请输入...",
+        "messageTo": "留言给：",
+        "messagePlaceholder": "请输入留言...",
+        "sendMessage": "送出留言",
+        "messageSent": "需求已成功送出！"
+      }
+    },
+    "options": {
+      "experience": ["成功创业", "家庭重建", "就业辅导", "法律协助", "戒瘾经验", "志工", "社区服务", "其他"],
+      "advantage": ["经济困难", "无固定工作", "缺乏家庭支持", "健康问题", "法律纠纷", "心理压力", "缺乏居住地", "人际关系困难", "正在创业中", "其他"],
+      "target": ["找工作/就业协助", "经济急难救助", "心理咨询/陪伴", "法律协助", "医疗协助", "住宿协助", "家庭修复", "戒瘾支持", "人际关系协助", "生活重建", "商业辅导", "其他"],
+      "helpType": ["线上", "线下"],
+      "frequency": ["每天", "每周", "每月", "依需要者而定", "其他"]
+    },
+    "tabs": {
+      "provide": "提供帮助",
+      "supply": "供应圈",
+      "need": "需要帮助",
+      "room": "互助房"
+    },
+    "messages": {
+      "messageSent": "留言发送成功！",
+      "messageFailed": "留言发送失败，请稍后再试",
+      "noMessages": "暂无留言",
+      "markRead": "标记已读",
+      "delete": "删除",
+      "confirmDelete": "你确定要删除这条留言吗？（一旦删除将无法复原）"
+    }
+  }
+} 

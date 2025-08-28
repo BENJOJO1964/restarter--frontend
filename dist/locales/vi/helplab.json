@@ -1,0 +1,85 @@
+{
+  "helplab": {
+    "sections": {
+      "provide": {
+        "title": "Tôi có thể cung cấp phòng trợ giúp & hợp tác",
+        "desc": "Chia sẻ chuyên môn, tài nguyên hoặc lĩnh vực bạn muốn hợp tác, để nhiều người có thể tìm thấy bạn.",
+        "btn": "Tôi muốn cung cấp"
+      },
+      "need": {
+        "title": "Tôi cần trợ giúp hoặc nhà hợp tác",
+        "desc": "Hãy nói về những khó khăn bạn đang gặp phải hoặc đối tác bạn muốn tìm, để cộng đồng có thể hỗ trợ bạn.",
+        "btn": "Tôi cần trợ giúp"
+      },
+      "supply": {
+        "title": "Vòng tròn cung cấp trợ giúp & hợp tác",
+        "desc": "Duyệt qua các tài nguyên trợ giúp và hợp tác mà mọi người có thể cung cấp, chủ động liên lạc với nhau.",
+        "btn": "Khám phá vòng tròn cung cấp"
+      },
+      "room": {
+        "title": "Vào phòng hỗ trợ lẫn nhau",
+        "desc": "Giao tiếp thời gian thực, cùng nhau phát triển",
+        "btn": "Vào phòng hỗ trợ lẫn nhau"
+      }
+    },
+    "modals": {
+      "provide": {
+        "title": "Tôi có thể cung cấp trợ giúp & hợp tác",
+        "subtitle": "Trên hành trình khởi động lại, kinh nghiệm và lợi thế của tôi có thể hữu ích!",
+        "experience": "Kinh nghiệm của tôi (chọn nhiều):",
+        "current": "Tình trạng hiện tại của tôi (chọn nhiều):",
+        "target": "Những người tôi muốn ưu tiên giúp đỡ (chọn nhiều):",
+        "helpType": "Tôi có thể cung cấp trợ giúp dưới hình thức:",
+        "statement": "Tuyên bố đặc biệt của tôi (trong vòng 50 ký tự):",
+        "frequency": "Tần suất tôi có thể giúp:",
+        "cancel": "Hủy",
+        "submit": "Gửi",
+        "other": "Khác...",
+        "enterPlaceholder": "Vui lòng nhập...",
+        "messageTo": "Nhắn tin cho:",
+        "messagePlaceholder": "Vui lòng nhập tin nhắn...",
+        "sendMessage": "Gửi tin nhắn",
+        "messageSent": "Yêu cầu đã được gửi thành công!"
+      },
+      "need": {
+        "title": "Tôi cần trợ giúp",
+        "subtitle": "Vui lòng mô tả những khó khăn bạn đang gặp phải hoặc những lĩnh vực cần hỗ trợ, để các đối tác cộng đồng có thể giúp bạn tốt hơn!",
+        "experience": "Kinh nghiệm của tôi (chọn nhiều):",
+        "current": "Tình trạng hiện tại của tôi (chọn nhiều):",
+        "target": "Những người tôi muốn ưu tiên giúp đỡ (chọn nhiều):",
+        "helpType": "Tôi có thể cung cấp trợ giúp dưới hình thức:",
+        "statement": "Tuyên bố đặc biệt của tôi (trong vòng 50 ký tự):",
+        "frequency": "Tần suất tôi có thể giúp:",
+        "cancel": "Hủy",
+        "submit": "Gửi",
+        "other": "Khác...",
+        "enterPlaceholder": "Vui lòng nhập...",
+        "messageTo": "Nhắn tin cho:",
+        "messagePlaceholder": "Vui lòng nhập tin nhắn...",
+        "sendMessage": "Gửi tin nhắn",
+        "messageSent": "Yêu cầu đã được gửi thành công!"
+      }
+    },
+    "options": {
+      "experience": ["Khởi nghiệp thành công", "Tái thiết gia đình", "Hướng dẫn việc làm", "Hỗ trợ pháp lý", "Kinh nghiệm cai nghiện", "Tình nguyện viên", "Dịch vụ cộng đồng", "Khác"],
+      "advantage": ["Khó khăn tài chính", "Không có việc làm cố định", "Thiếu hỗ trợ gia đình", "Vấn đề sức khỏe", "Tranh chấp pháp lý", "Áp lực tâm lý", "Thiếu nơi ở", "Khó khăn trong mối quan hệ", "Đang khởi nghiệp", "Khác"],
+      "target": ["Tìm việc/hỗ trợ việc làm", "Hỗ trợ tài chính khẩn cấp", "Tư vấn tâm lý/đồng hành", "Hỗ trợ pháp lý", "Hỗ trợ y tế", "Hỗ trợ nhà ở", "Sửa chữa gia đình", "Hỗ trợ cai nghiện", "Hỗ trợ mối quan hệ", "Tái thiết cuộc sống", "Hướng dẫn kinh doanh", "Khác"],
+      "helpType": ["Trực tuyến", "Ngoại tuyến"],
+      "frequency": ["Hàng ngày", "Hàng tuần", "Hàng tháng", "Theo nhu cầu", "Khác"]
+    },
+    "tabs": {
+      "provide": "Cung cấp trợ giúp",
+      "supply": "Vòng tròn cung cấp",
+      "need": "Cần trợ giúp",
+      "room": "Phòng hỗ trợ lẫn nhau"
+    },
+    "messages": {
+      "messageSent": "Tin nhắn đã được gửi thành công!",
+      "messageFailed": "Gửi tin nhắn thất bại, vui lòng thử lại sau",
+      "noMessages": "Chưa có tin nhắn",
+      "markRead": "Đánh dấu đã đọc",
+      "delete": "Xóa",
+      "confirmDelete": "Bạn có chắc chắn muốn xóa tin nhắn này không? (Một khi xóa sẽ không thể khôi phục)"
+    }
+  }
+} 

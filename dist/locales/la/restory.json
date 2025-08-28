@@ -1,0 +1,28 @@
+{
+  "restory": {
+    "title": "Catena Narrationum ReStoryChain™",
+    "subtitle": "Historia tua servanda est. Si vis, in nodo blockchain in aeternum manebit, non ut misericordiam petas, sed ut mundus sciat: vere superavisti.",
+    "form": {
+      "title": "Titulus Historiae",
+      "content": "Contentum Historiae",
+      "select_tag": "Elige genus",
+      "visibility": "Quis hanc historiam videre potest?",
+      "visibility_private": "Solus ego",
+      "visibility_friends": "Amici tantum",
+      "visibility_public": "Omnes",
+      "confirm_onchain": "✔ Assentior hanc testificationem in blockchain servari",
+      "submit": "Submitte Historiam"
+    },
+    "card": {
+      "onchain": "🔗 Servatum",
+      "tag": "Genus:",
+      "delete": "Dele Historiam",
+      "confirm_delete": "Certus esne hanc historiam delere velle? (Hoc actum revocari non potest)"
+    },
+    "empty_state": "Nullae adhuc historiae publicae",
+    "success_submit": "Historia feliciter submissa!",
+    "success_delete": "Historia feliciter deleta",
+    "error_submit": "Submissio defecit, quaeso iterum tenta",
+    "error_delete": "Deletio defecit, quaeso iterum tenta"
+  }
+} 

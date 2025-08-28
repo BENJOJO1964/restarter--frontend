@@ -1,0 +1,28 @@
+{
+  "restory": {
+    "title": "Chuỗi Câu Chuyện ReStoryChain™",
+    "subtitle": "Câu chuyện của bạn xứng đáng được lưu giữ. Nếu bạn muốn, nó sẽ tồn tại mãi mãi trên một nút blockchain, không phải để cầu xin sự thương hại mà để thế giới biết: bạn thực sự đã vượt qua.",
+    "form": {
+      "title": "Tiêu đề câu chuyện",
+      "content": "Nội dung câu chuyện",
+      "select_tag": "Vui lòng chọn một danh mục",
+      "visibility": "Ai có thể xem câu chuyện này?",
+      "visibility_private": "Chỉ mình tôi",
+      "visibility_friends": "Chỉ bạn bè",
+      "visibility_public": "Mọi người",
+      "confirm_onchain": "✔ Tôi đồng ý lưu giữ câu chuyện này trên blockchain",
+      "submit": "Gửi câu chuyện"
+    },
+    "card": {
+      "onchain": "🔗 Đã lưu trữ",
+      "tag": "Danh mục:",
+      "delete": "Xóa câu chuyện",
+      "confirm_delete": "Bạn có chắc muốn xóa câu chuyện này không? (Hành động này không thể hoàn tác)"
+    },
+    "empty_state": "Chưa có câu chuyện công khai nào",
+    "success_submit": "Gửi câu chuyện thành công!",
+    "success_delete": "Xóa câu chuyện thành công",
+    "error_submit": "Gửi thất bại, vui lòng thử lại sau",
+    "error_delete": "Xóa thất bại, vui lòng thử lại sau"
+  }
+} 

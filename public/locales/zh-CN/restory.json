@@ -1,0 +1,28 @@
+{
+  "restory": {
+    "title": "故事链 ReStoryChain™",
+    "subtitle": "你的故事值得被封存。如果你愿意，它将永远存在某个区块链节点上，不是为了讨拍，而是让世界知道：你真的走过来了。",
+    "form": {
+      "title": "故事标题",
+      "content": "故事内容",
+      "select_tag": "请选择一个分类",
+      "visibility": "谁可以看到这段故事？",
+      "visibility_private": "只有我",
+      "visibility_friends": "好友可见",
+      "visibility_public": "所有人",
+      "confirm_onchain": "✔ 我愿意将这段见证封存于区块链",
+      "submit": "提交故事"
+    },
+    "card": {
+      "onchain": "🔗 已封存",
+      "tag": "分类标签：",
+      "delete": "删除故事",
+      "confirm_delete": "你确定要删除这篇故事吗？（一旦删除将无法恢复）"
+    },
+    "empty_state": "目前尚无公开故事",
+    "success_submit": "故事已成功提交！",
+    "success_delete": "故事已成功删除",
+    "error_submit": "提交失败，请稍后重试",
+    "error_delete": "删除失败，请稍后重试"
+  }
+} 

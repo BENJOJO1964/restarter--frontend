@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>更新通知機制 - Restarter™</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft JhengHei', 'PingFang TC', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+            font-weight: 300;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section h2::before {
+            content: "📢";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        .section h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 20px 0 10px 0;
+            padding-left: 15px;
+            border-left: 3px solid #3498db;
+        }
+        
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+            padding-left: 15px;
+        }
+        
+        .section ul {
+            margin: 15px 0;
+            padding-left: 35px;
+        }
+        
+        .section li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 2px solid #2196f3;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.2);
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border: 2px solid #ff9800;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.2);
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border: 2px solid #9c27b0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .contact-info h3 {
+            color: #7b1fa2;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #ecf0f1;
+            color: #7f8c8d;
+        }
+        
+        .back-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section h2 {
+                font-size: 1.5em;
+            }
+            
+            .section h3 {
+                font-size: 1.2em;
+            }
+        }
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #374151;
+            color: white;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 1000;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+        .back-button:hover {
+            background-color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-button">← 返回</a>
+    <div class="container">
+        <div class="header">
+            <h1>更新通知機制</h1>
+            <p class="subtitle">Restarter™ 平台政策變更通知與用戶權利保護</p>
+            <p class="subtitle">最後更新：2024年12月</p>
+        </div>
+
+        <div class="section">
+            <h2>政策變更通知方式</h2>
+            <p>Restarter™ 致力於保持政策的透明度和及時性。我們採用多種方式通知用戶關於政策變更：</p>
+            
+            <h3>1. 應用程式內通知</h3>
+            <ul>
+                <li><strong>推送通知：</strong>重要政策變更會通過應用程式推送通知直接發送給用戶</li>
+                <li><strong>應用程式內彈窗：</strong>用戶登入時會顯示重要政策更新提醒</li>
+                <li><strong>設置頁面提醒：</strong>在用戶設置頁面顯示未讀的政策更新通知</li>
+            </ul>
+            
+            <h3>2. 電子郵件通知</h3>
+            <ul>
+                <li><strong>註冊郵箱：</strong>所有政策變更都會發送到用戶註冊的電子郵箱</li>
+                <li><strong>多語言支持：</strong>根據用戶語言偏好發送相應語言版本</li>
+                <li><strong>摘要格式：</strong>提供簡潔的變更摘要和完整文件連結</li>
+            </ul>
+            
+            <h3>3. 網站公告</h3>
+            <ul>
+                <li><strong>首頁公告：</strong>重要變更會在網站首頁顯示醒目公告</li>
+                <li><strong>法律文件頁面：</strong>所有法律文件頁面都會標註最新更新日期</li>
+                <li><strong>變更歷史：</strong>提供詳細的政策變更歷史記錄</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>用戶同意更新流程</h2>
+            <p>我們尊重用戶的選擇權，提供靈活的同意更新機制：</p>
+            
+            <h3>1. 分層同意機制</h3>
+            <ul>
+                <li><strong>必要更新：</strong>涉及法律合規的必要變更，用戶必須同意才能繼續使用服務</li>
+                <li><strong>功能更新：</strong>涉及新功能或服務改進的變更，用戶可選擇是否接受</li>
+                <li><strong>可選更新：</strong>非核心功能的變更，用戶可選擇性參與</li>
+            </ul>
+            
+            <h3>2. 同意流程設計</h3>
+            <ul>
+                <li><strong>明確說明：</strong>清楚解釋變更內容和對用戶的影響</li>
+                <li><strong>時間充裕：</strong>提供充足的時間讓用戶閱讀和理解變更內容</li>
+                <li><strong>簡單操作：</strong>提供簡單的同意或拒絕選項</li>
+                <li><strong>後續選擇：</strong>用戶可隨時在設置中更改同意狀態</li>
+            </ul>
+            
+            <h3>3. 不同意處理</h3>
+            <ul>
+                <li><strong>服務限制：</strong>不同意必要更新的用戶可能無法使用某些功能</li>
+                <li><strong>數據保護：</strong>用戶數據仍受原有政策保護</li>
+                <li><strong>退出選項：</strong>提供完整的賬戶刪除和數據導出選項</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>重大變更特別通知</h2>
+            <p>對於重大政策變更，我們採用特別的通知機制：</p>
+            
+            <h3>1. 重大變更定義</h3>
+            <ul>
+                <li><strong>數據使用變更：</strong>改變數據收集、使用或共享方式</li>
+                <li><strong>權利影響：</strong>影響用戶權利或隱私保護的重大變更</li>
+                <li><strong>服務範圍：</strong>改變服務範圍或核心功能</li>
+                <li><strong>法律要求：</strong>因法律法規要求而必須的變更</li>
+            </ul>
+            
+            <h3>2. 特別通知方式</h3>
+            <ul>
+                <li><strong>多重通知：</strong>通過多種渠道同時發送通知</li>
+                <li><strong>突出顯示：</strong>在應用程式和網站中突出顯示變更內容</li>
+                <li><strong>詳細說明：</strong>提供變更原因、影響和用戶選項的詳細說明</li>
+                <li><strong>諮詢期：</strong>重大變更前提供諮詢期讓用戶反饋</li>
+            </ul>
+            
+            <h3>3. 生效時間安排</h3>
+            <ul>
+                <li><strong>預告期：</strong>重大變更通常提前30天通知</li>
+                <li><strong>分階段實施：</strong>複雜變更可能分階段實施</li>
+                <li><strong>過渡期：</strong>提供適當的過渡期讓用戶適應</li>
+                <li><strong>緊急變更：</strong>法律要求的緊急變更會立即通知</li>
+            </ul>
+        </div>
+
+        <div class="highlight-box">
+            <h3>📋 用戶權利保護</h3>
+            <ul>
+                <li><strong>知情權：</strong>用戶有權了解所有政策變更的詳細內容</li>
+                <li><strong>選擇權：</strong>用戶有權選擇是否接受非必要的政策變更</li>
+                <li><strong>退出權：</strong>用戶有權在不同意變更時退出服務</li>
+                <li><strong>數據權：</strong>用戶有權要求刪除個人數據並導出數據</li>
+                <li><strong>投訴權：</strong>用戶有權就政策變更提出投訴和建議</li>
+            </ul>
+        </div>
+
+        <div class="warning-box">
+            <h3>⚠️ 重要提醒</h3>
+            <ul>
+                <li>請定期檢查您的電子郵箱和應用程式通知</li>
+                <li>及時更新您的聯繫方式以確保收到重要通知</li>
+                <li>如對政策變更有疑問，請及時聯繫我們的客服團隊</li>
+                <li>建議保存重要的政策文件副本作為參考</li>
+            </ul>
+        </div>
+
+        <div class="contact-info">
+            <h3>📞 聯繫我們</h3>
+            <p><strong>客服郵箱：</strong>support@restarter.ai</p>
+            <p><strong>法律諮詢：</strong>legal@restarter.ai</p>
+            <p><strong>緊急聯繫：</strong>+886-2-1234-5678</p>
+            <p><strong>在線客服：</strong>工作日 9:00-18:00 (GMT+8)</p>
+        </div>
+
+        <div class="footer">
+            <p>© 2024 Restarter™. 保留所有權利。</p>
+            <p>本文件為 Restarter™ 平台更新通知機制的官方說明文件。</p>
+
+        </div>
+    </div>
+</body>
+</html>

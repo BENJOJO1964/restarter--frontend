@@ -1,0 +1,8 @@
+[
+  { "id": "xi", "name": "習近平", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Xi_Jinping_2022.jpg/440px-Xi_Jinping_2022.jpg" },
+  { "id": "putin", "name": "普丁", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Vladimir_Putin_%282022-02-08%29.jpg/440px-Vladimir_Putin_%282022-02-08%29.jpg" },
+  { "id": "kim", "name": "金正恩", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Kim_Jong-un_in_September_2018.jpg/440px-Kim_Jong-un_in_September_2018.jpg" },
+  { "id": "lee", "name": "李家超", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/John_Lee_Ka-chiu_in_2022.jpg/440px-John_Lee_Ka-chiu_in_2022.jpg" },
+  { "id": "chan", "name": "陳茂波", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Paul_Chan_Mo-po_2022.jpg/440px-Paul_Chan_Mo-po_2022.jpg" },
+  { "id": "lam", "name": "林鄭月娥", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Carrie_Lam_in_2021.jpg/440px-Carrie_Lam_in_2021.jpg" }
+] 

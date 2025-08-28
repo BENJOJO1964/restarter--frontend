@@ -1,0 +1,85 @@
+{
+  "helplab": {
+    "sections": {
+      "provide": {
+        "title": "I can provide help & cooperation room",
+        "desc": "Share your expertise, resources or areas you want to collaborate on, so more people can find you.",
+        "btn": "I want to provide"
+      },
+      "need": {
+        "title": "I need help or cooperation house",
+        "desc": "Tell us about the difficulties you're currently facing or partners you want to find, so the community can support you.",
+        "btn": "I need help"
+      },
+      "supply": {
+        "title": "Help & cooperation supply circle",
+        "desc": "Browse the help and cooperation resources everyone can provide, actively contact each other.",
+        "btn": "Explore supply circle"
+      },
+      "room": {
+        "title": "Enter mutual aid room",
+        "desc": "Real-time communication, mutual growth",
+        "btn": "Enter mutual aid room"
+      }
+    },
+    "modals": {
+      "provide": {
+        "title": "I can provide help & cooperation",
+        "subtitle": "On the restart journey, my experience and advantages might be helpful!",
+        "experience": "My experience (multiple choice):",
+        "current": "My current situation (multiple choice):",
+        "target": "People I want to help first (multiple choice):",
+        "helpType": "I can provide help in the form of:",
+        "statement": "My special statement (within 50 characters):",
+        "frequency": "My help frequency:",
+        "cancel": "Cancel",
+        "submit": "Submit",
+        "other": "Other...",
+        "enterPlaceholder": "Please enter...",
+        "messageTo": "Message to:",
+        "messagePlaceholder": "Please enter message...",
+        "sendMessage": "Send message",
+        "messageSent": "Request sent successfully!"
+      },
+      "need": {
+        "title": "I need help",
+        "subtitle": "Please describe the difficulties you're facing or areas where you need assistance, so community partners can better help you!",
+        "experience": "My experience (multiple choice):",
+        "current": "My current situation (multiple choice):",
+        "target": "People I want to help first (multiple choice):",
+        "helpType": "I can provide help in the form of:",
+        "statement": "My special statement (within 50 characters):",
+        "frequency": "My help frequency:",
+        "cancel": "Cancel",
+        "submit": "Submit",
+        "other": "Other...",
+        "enterPlaceholder": "Please enter...",
+        "messageTo": "Message to:",
+        "messagePlaceholder": "Please enter message...",
+        "sendMessage": "Send message",
+        "messageSent": "Request sent successfully!"
+      }
+    },
+    "options": {
+      "experience": ["Successful entrepreneurship", "Family reconstruction", "Employment guidance", "Legal assistance", "Addiction recovery experience", "Volunteer", "Community service", "Other"],
+      "advantage": ["Financial difficulties", "No fixed job", "Lack of family support", "Health problems", "Legal disputes", "Psychological pressure", "Lack of housing", "Interpersonal difficulties", "Currently starting a business", "Other"],
+      "target": ["Job search/employment assistance", "Emergency financial assistance", "Psychological counseling/companionship", "Legal assistance", "Medical assistance", "Housing assistance", "Family repair", "Addiction support", "Interpersonal assistance", "Life reconstruction", "Business guidance", "Other"],
+      "helpType": ["Online", "Offline"],
+      "frequency": ["Daily", "Weekly", "Monthly", "As needed", "Other"]
+    },
+    "tabs": {
+      "provide": "Provide help",
+      "supply": "Supply circle",
+      "need": "Need help",
+      "room": "Mutual aid room"
+    },
+    "messages": {
+      "messageSent": "Message sent successfully!",
+      "messageFailed": "Message sending failed, please try again later",
+      "noMessages": "No messages yet",
+      "markRead": "Mark as read",
+      "delete": "Delete",
+      "confirmDelete": "Are you sure you want to delete this message? (Once deleted, it cannot be restored)"
+    }
+  }
+} 
