@@ -1,0 +1,143 @@
+📊 清理報告
+==========
+開始時間: Wed Aug 13 13:13:24 CST 2025
+
+刪除 frontend/node_modules
+刪除 backend/node_modules
+刪除 mobile_app/.dart_tool
+刪除目錄: ./mobile_app/build
+刪除目錄: ./frontend/dist
+刪除系統檔案: ./mobile_app/macos/.DS_Store
+刪除系統檔案: ./mobile_app/.DS_Store
+刪除系統檔案: ./mobile_app/ios/.DS_Store
+刪除系統檔案: ./.DS_Store
+刪除系統檔案: ./locales/.DS_Store
+刪除系統檔案: ./frontend/.DS_Store
+刪除系統檔案: ./frontend/public/.DS_Store
+刪除系統檔案: ./frontend/public/locales/.DS_Store
+刪除系統檔案: ./frontend/public/videos/.DS_Store
+刪除系統檔案: ./frontend/pglite-debug.log
+刪除系統檔案: ./backend/.DS_Store
+刪除系統檔案: ./videos/.DS_Store
+發現大圖片: ./puzzle12.png (4.8M)
+刪除未引用的圖片: ./puzzle12.png
+發現影片: ./frontend/public/videos/clarity.mp4 (112K)
+刪除未引用的影片: ./frontend/public/videos/clarity.mp4
+發現影片: ./frontend/public/videos/confusion .mp4 (128K)
+刪除未引用的影片: ./frontend/public/videos/confusion .mp4
+發現影片: ./frontend/public/videos/lost.mp4 (108K)
+刪除未引用的影片: ./frontend/public/videos/lost.mp4
+發現影片: ./frontend/public/videos/teasing.mp4 (116K)
+刪除未引用的影片: ./frontend/public/videos/teasing.mp4
+發現影片: ./frontend/public/videos/reproach.mp4 (124K)
+刪除未引用的影片: ./frontend/public/videos/reproach.mp4
+發現影片: ./frontend/public/videos/Restarter-cn.mp4 (3.6M)
+刪除未引用的影片: ./frontend/public/videos/Restarter-cn.mp4
+發現影片: ./videos/clarity.mp4 (112K)
+刪除未引用的影片: ./videos/clarity.mp4
+發現影片: ./videos/confusion .mp4 (128K)
+刪除未引用的影片: ./videos/confusion .mp4
+發現影片: ./videos/regret.mp4 (104K)
+刪除未引用的影片: ./videos/regret.mp4
+發現影片: ./videos/encouragement.mp4 (124K)
+刪除未引用的影片: ./videos/encouragement.mp4
+發現影片: ./videos/lost.mp4 (108K)
+刪除未引用的影片: ./videos/lost.mp4
+發現影片: ./videos/teasing.mp4 (116K)
+刪除未引用的影片: ./videos/teasing.mp4
+發現影片: ./videos/admiration.mp4 (124K)
+刪除未引用的影片: ./videos/admiration.mp4
+發現影片: ./videos/disappointment .mp4 (108K)
+刪除未引用的影片: ./videos/disappointment .mp4
+發現影片: ./videos/reproach.mp4 (124K)
+刪除未引用的影片: ./videos/reproach.mp4
+發現影片: ./videos/motivation.mp4 (124K)
+刪除未引用的影片: ./videos/motivation.mp4
+發現影片: ./videos/reluctance .mp4 (116K)
+刪除未引用的影片: ./videos/reluctance .mp4
+發現影片: ./videos/joy.mp4 (120K)
+刪除未引用的影片: ./videos/joy.mp4
+發現影片: ./videos/breakthrough.mp4 (108K)
+刪除未引用的影片: ./videos/breakthrough.mp4
+發現影片: ./videos/affection.mp4 (108K)
+刪除未引用的影片: ./videos/affection.mp4
+刪除測試檔案: ./test-optimized-landing-page.sh
+刪除測試檔案: ./mobile_app/test/widget_test.dart
+刪除測試檔案: ./test-local-environment.sh
+刪除測試檔案: ./test-server-status.sh
+刪除測試檔案: ./backend/test-sendgrid-verification.js
+刪除測試檔案: ./backend/test-resend-detailed.js
+刪除測試檔案: ./backend/test-email-send.js
+刪除測試檔案: ./backend/test-registration-email.js
+刪除測試檔案: ./backend/test-email-service.js
+刪除測試檔案: ./backend/test-email-verification.js
+刪除測試檔案: ./quick-test-optimizations.sh
+刪除測試檔案: ./comprehensive-test.sh
+刪除測試檔案: ./test-mobile-connectivity.sh
+刪除測試檔案: ./test-landing-page.sh
+AI 模型目錄大小: 289M
+發現大模型檔案: backend/gfpgan/weights/alignment_WFLW_4HG.pth (185M)
+發現大模型檔案: backend/gfpgan/weights/detection_Resnet50_Final.pth (104M)
+
+📊 清理後專案大小:
+308M	.
+
+🗑️ 已刪除的檔案:
+🗑️  frontend/node_modules
+🗑️  backend/node_modules
+🗑️  mobile_app/.dart_tool
+🗑️  ./mobile_app/build
+🗑️  ./frontend/dist
+🗑️  ./mobile_app/macos/.DS_Store
+🗑️  ./mobile_app/.DS_Store
+🗑️  ./mobile_app/ios/.DS_Store
+🗑️  ./.DS_Store
+🗑️  ./locales/.DS_Store
+🗑️  ./frontend/.DS_Store
+🗑️  ./frontend/public/.DS_Store
+🗑️  ./frontend/public/locales/.DS_Store
+🗑️  ./frontend/public/videos/.DS_Store
+🗑️  ./frontend/pglite-debug.log
+🗑️  ./backend/.DS_Store
+🗑️  ./videos/.DS_Store
+🗑️  ./puzzle12.png
+🗑️  ./frontend/public/videos/clarity.mp4
+🗑️  ./frontend/public/videos/confusion .mp4
+🗑️  ./frontend/public/videos/lost.mp4
+🗑️  ./frontend/public/videos/teasing.mp4
+🗑️  ./frontend/public/videos/reproach.mp4
+🗑️  ./frontend/public/videos/Restarter-cn.mp4
+🗑️  ./videos/clarity.mp4
+🗑️  ./videos/confusion .mp4
+🗑️  ./videos/regret.mp4
+🗑️  ./videos/encouragement.mp4
+🗑️  ./videos/lost.mp4
+🗑️  ./videos/teasing.mp4
+🗑️  ./videos/admiration.mp4
+🗑️  ./videos/disappointment .mp4
+🗑️  ./videos/reproach.mp4
+🗑️  ./videos/motivation.mp4
+🗑️  ./videos/reluctance .mp4
+🗑️  ./videos/joy.mp4
+🗑️  ./videos/breakthrough.mp4
+🗑️  ./videos/affection.mp4
+🗑️  ./test-optimized-landing-page.sh
+🗑️  ./mobile_app/test/widget_test.dart
+🗑️  ./test-local-environment.sh
+🗑️  ./test-server-status.sh
+🗑️  ./backend/test-sendgrid-verification.js
+🗑️  ./backend/test-resend-detailed.js
+🗑️  ./backend/test-email-send.js
+🗑️  ./backend/test-registration-email.js
+🗑️  ./backend/test-email-service.js
+🗑️  ./backend/test-email-verification.js
+🗑️  ./quick-test-optimizations.sh
+🗑️  ./comprehensive-test.sh
+🗑️  ./test-mobile-connectivity.sh
+🗑️  ./test-landing-page.sh
+
+📦 建議壓縮的檔案:
+
+☁️ 建議移到雲端的檔案:
+☁️  建議將 backend/gfpgan/weights/alignment_WFLW_4HG.pth 移到雲端 CDN
+☁️  建議將 backend/gfpgan/weights/detection_Resnet50_Final.pth 移到雲端 CDN

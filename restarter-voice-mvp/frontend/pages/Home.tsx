@@ -680,7 +680,13 @@ export default function Home() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             {user ? (
               <>
-                <img src={user.photoURL || '/ctx-logo.png'} alt="avatar" style={{ width: 28, height: 28, borderRadius: '50%', objectFit: 'cover', border: '2px solid #6B5BFF' }} />
+                {user.photoURL ? (
+  <img src={user.photoURL} alt="avatar" style={{ width: 28, height: 28, borderRadius: '50%', objectFit: 'cover', border: '2px solid #6B5BFF' }} />
+) : (
+  <div style={{ width: 28, height: 28, borderRadius: '50%', background: '#6B5BFF', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 'bold', border: '2px solid #6B5BFF' }}>
+    {user.displayName ? user.displayName.charAt(0).toUpperCase() : 'U'}
+  </div>
+)}
                 <span style={{ color: '#6B5BFF', fontWeight: 600, fontSize: 12, maxWidth: 60, overflow: 'hidden', textOverflow: 'ellipsis' }}>{user.displayName || user.email || '用戶'}</span>
                 <button 
                   className="topbar-btn" 
@@ -845,14 +851,21 @@ export default function Home() {
             {user ? (
               <>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <img src={user.photoURL || '/ctx-logo.png'} alt="avatar" style={{ width: 36, height: 36, borderRadius: '50%', objectFit: 'cover', border: '2px solid #90caf9' }} />
+                  {user.photoURL ? (
+  <img src={user.photoURL} alt="avatar" style={{ width: 36, height: 36, borderRadius: '50%', objectFit: 'cover', border: '2px solid #90caf9' }} />
+) : (
+  <div style={{ width: 36, height: 36, borderRadius: '50%', background: '#90caf9', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, fontWeight: 'bold', border: '2px solid #90caf9' }}>
+    {user.displayName ? user.displayName.charAt(0).toUpperCase() : 'U'}
+  </div>
+)}
                   <span style={{ color: '#1976d2', fontWeight: 700, fontSize: 16 }}>{user.displayName || user.email || '用戶'}</span>
                   <button className="topbar-btn" onClick={async () => { await signOut(auth); }} style={{ background: '#fff', color: '#ff6347', border: '2px solid #ffb4a2', borderRadius: 8, fontWeight: 700, fontSize: 16, padding: '8px 14px', marginLeft: 6 }}>{LOGOUT_TEXT[lang]}</button>
-
                 </div>
               </>
             ) : (
-              <button className="topbar-btn" onClick={() => navigate('/register')} style={{ background: '#fff', color: '#1976d2', border: '2px solid #90caf9', borderRadius: 8, fontWeight: 700, fontSize: 16, padding: '8px 10px', minWidth: 90 }}>{lang==='zh-TW'?'註冊/登入':'zh-CN'===lang?'注册/登录':'en'===lang?'Register / Login':'ja'===lang?'登録/ログイン':'ko'===lang?'가입/로그인':'th'===lang?'สมัคร/เข้าสู่ระบบ':'vi'===lang?'Đăng ký/Đăng nhập':'ms'===lang?'Daftar / Log Masuk':'Registrare / Login'}</button>
+                              <>
+                  <button className="topbar-btn" onClick={() => navigate('/register')} style={{ background: '#fff', color: '#1976d2', border: '2px solid #90caf9', borderRadius: 8, fontWeight: 700, fontSize: 16, padding: '8px 10px', minWidth: 90 }}>{lang==='zh-TW'?'註冊/登入':'zh-CN'===lang?'注册/登录':'en'===lang?'Register / Login':'ja'===lang?'登録/ログイン':'ko'===lang?'가입/로그인':'th'===lang?'สมัคร/เข้าสู่ระบบ':'vi'===lang?'Đăng ký/Đăng nhập':'ms'===lang?'Daftar / Log Masuk':'Registrare / Login'}</button>
+              </>
             )}
           </div>
           {/* 語言選擇按鈕，靠右且寬度縮短，點擊彈出小框 */}
@@ -1252,6 +1265,9 @@ export default function Home() {
           
           {/* 手機版額外按鈕 */}
           <div style={{ width: '100%', padding: '20px 16px', display: 'flex', flexDirection: 'column', gap: 12, boxSizing: 'border-box' }}>
+            <button onClick={() => navigate('/profile')} style={{ width: '100%', padding: '12px', borderRadius: 10, background: '#00CFFF', color: '#fff', fontWeight: 700, fontSize: 14, textDecoration: 'none', border: '2px solid #00CFFF', cursor: 'pointer', textAlign: 'center', display: 'block', boxSizing: 'border-box' }}>
+              {lang==='zh-TW'?'💼 職涯中心':'zh-CN'===lang?'💼 职涯中心':'en'===lang?'💼 Career Center':'ja'===lang?'💼 キャリアセンター':'ko'===lang?'💼 커리어 센터':'th'===lang?'💼 ศูนย์อาชีพ':'vi'===lang?'💼 Trung tâm nghề nghiệp':'ms'===lang?'💼 Pusat Kerjaya':'💼 Career Center'}
+            </button>
             <span href="/plans" style={{ width: '100%', padding: '12px', borderRadius: 10, background: '#6B5BFF', color: '#fff', fontWeight: 700, fontSize: 14, textDecoration: 'none', border: '2px solid #6B5BFF', cursor: 'pointer', textAlign: 'center', display: 'block', boxSizing: 'border-box' }}>{MEMBER_BENEFITS_TEXT[lang]}</span>
           </div>
         </div>
@@ -1565,7 +1581,10 @@ export default function Home() {
           {/* 右側內容：mockup 圖片和來聊天吧按鈕 */}
           <div className="home-right-col" style={{ flex: 1, minWidth: 320, maxWidth: 520, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', paddingTop: 120, zIndex: 2 }}>
             {/* 新增：上方按鈕區塊 */}
-            <div style={{ display: 'flex', gap: 18, marginBottom: 18, justifyContent: 'center', width: '100%' }}>
+            <div style={{ display: 'flex', gap: 18, marginBottom: 18, justifyContent: 'center', width: '100%', flexWrap: 'wrap' }}>
+              <button onClick={() => navigate('/profile')} style={{ background: '#00CFFF', color: '#fff', fontWeight: 700, fontSize: 18, padding: '10px 28px', borderRadius: 10, boxShadow: '0 2px 8px #00CFFF33', textDecoration: 'none', border: '2px solid #00CFFF', cursor: 'pointer' }}>
+                {lang==='zh-TW'?'💼 職涯中心':'zh-CN'===lang?'💼 职涯中心':'en'===lang?'💼 Career Center':'ja'===lang?'💼 キャリアセンター':'ko'===lang?'💼 커리어 센터':'th'===lang?'💼 ศูนย์อาชีพ':'vi'===lang?'💼 Trung tâm nghề nghiệp':'ms'===lang?'💼 Pusat Kerjaya':'💼 Career Center'}
+              </button>
               <span href="/plans" style={{ background: '#6B5BFF', color: '#fff', fontWeight: 700, fontSize: 18, padding: '10px 28px', borderRadius: 10, boxShadow: '0 2px 8px #6B5BFF33', textDecoration: 'none', border: '2px solid #6B5BFF', cursor: 'pointer' }}>{MEMBER_BENEFITS_TEXT[lang]}</span>
             </div>
             {/* 天氣組件 - 移動到訂閱方案按鈕下方 */}
@@ -1769,6 +1788,103 @@ export default function Home() {
           font-weight: 700;
           color: #fff;
           text-shadow: 0 2px 8px #232946, 0 4px 18px #0008;
+        }
+        
+        /* 響應式設計：手機版按鈕佈局 */
+        @media (max-width: 768px) {
+          .home-right-col > div:first-child {
+            flex-direction: column !important;
+            gap: 12px !important;
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+          }
+          .home-right-col > div:first-child > button,
+          .home-right-col > div:first-child > span {
+            width: 100% !important;
+            max-width: 280px !important;
+            text-align: center !important;
+            font-size: 16px !important;
+            padding: 12px 20px !important;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+          }
+        }
+        
+        /* 確保按鈕在手機版上可見 */
+        @media (max-width: 768px) {
+          .home-right-col {
+            padding-top: 80px !important;
+          }
+          .home-right-col > div:first-child {
+            position: relative !important;
+            z-index: 1000 !important;
+            background: rgba(255, 255, 255, 0.9) !important;
+            padding: 10px !important;
+            border-radius: 10px !important;
+            margin-bottom: 20px !important;
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+          }
+        }
+        
+        /* 強制顯示職涯中心按鈕 */
+        @media (max-width: 768px) {
+          .home-right-col > div:first-child > button:first-child {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            background: #00CFFF !important;
+            color: #fff !important;
+            border: 2px solid #00CFFF !important;
+            font-weight: 700 !important;
+            font-size: 16px !important;
+            padding: 12px 20px !important;
+            border-radius: 10px !important;
+            margin-bottom: 8px !important;
+            width: 100% !important;
+            max-width: 280px !important;
+            text-align: center !important;
+          }
+        }
+        
+        /* 額外強制顯示 - 使用更通用的選擇器 */
+        @media (max-width: 768px) {
+          .home-right-col > div:first-child button {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            background: #00CFFF !important;
+            color: #fff !important;
+            border: 2px solid #00CFFF !important;
+            font-weight: 700 !important;
+            font-size: 16px !important;
+            padding: 12px 20px !important;
+            border-radius: 10px !important;
+            margin-bottom: 8px !important;
+            width: 100% !important;
+            max-width: 280px !important;
+            text-align: center !important;
+          }
+        }
+        
+        /* 確保按鈕容器可見 */
+        @media (max-width: 768px) {
+          .home-right-col > div:first-child {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 12px !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative !important;
+            z-index: 1000 !important;
+            background: rgba(255, 255, 255, 0.9) !important;
+            padding: 10px !important;
+            border-radius: 10px !important;
+            margin-bottom: 20px !important;
+          }
         }
       `}</style>
     </div>

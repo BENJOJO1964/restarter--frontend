@@ -1,0 +1,2 @@
+☁️  建議將 backend/gfpgan/weights/alignment_WFLW_4HG.pth 移到雲端 CDN
+☁️  建議將 backend/gfpgan/weights/detection_Resnet50_Final.pth 移到雲端 CDN

@@ -35,6 +35,7 @@ const TEXT = {
     eventType: '經歷事件**選填',
     whatToImprove: '想改善什麼*選填',
     uploadAvatar: '上傳頭像',
+    uploadAvatarOptional: '(可選)',
     male: '男',
     female: '女',
     genderRequired: '(必選)',
@@ -80,6 +81,7 @@ const TEXT = {
     eventType: '经历事件**选填',
     whatToImprove: '想改善什么*选填',
     uploadAvatar: '上传头像',
+    uploadAvatarOptional: '(可选)',
     male: '男',
     female: '女',
     genderRequired: '(必选)',
@@ -125,6 +127,7 @@ const TEXT = {
     eventType: 'History Event**optional',
     whatToImprove: 'What to improve*optional',
     uploadAvatar: 'Upload Avatar',
+    uploadAvatarOptional: '(Optional)',
     male: 'Male',
     female: 'Female',
     genderRequired: '(*required)',
@@ -170,6 +173,7 @@ const TEXT = {
     eventType: '経験した出来事**任意',
     whatToImprove: '改善したいこと*任意',
     uploadAvatar: 'アバターをアップロード',
+    uploadAvatarOptional: '(任意)',
     male: '男性',
     female: '女性',
     genderRequired: '(*必須)',
@@ -215,6 +219,7 @@ const TEXT = {
     eventType: '경험한 사건**선택',
     whatToImprove: '개선하고 싶은 점*선택',
     uploadAvatar: '아바타 업로드',
+    uploadAvatarOptional: '(선택)',
     male: '남성',
     female: '여성',
     genderRequired: '(*필수)',
@@ -260,6 +265,7 @@ const TEXT = {
     eventType: 'เหตุการณ์ที่ผ่านมา**ไม่บังคับ',
     whatToImprove: 'สิ่งที่ต้องการปรับปรุง*ไม่บังคับ',
     uploadAvatar: 'อัปโหลดรูปภาพ',
+    uploadAvatarOptional: '(ไม่บังคับ)',
     male: 'ชาย',
     female: 'หญิง',
     genderRequired: '(*จำเป็น)',
@@ -305,6 +311,7 @@ const TEXT = {
     eventType: 'Sự kiện đã trải qua**không bắt buộc',
     whatToImprove: 'Điều muốn cải thiện*không bắt buộc',
     uploadAvatar: 'Tải lên hình đại diện',
+    uploadAvatarOptional: '(tùy chọn)',
     male: 'Nam',
     female: 'Nữ',
     genderRequired: '(*bắt buộc)',
@@ -350,6 +357,7 @@ const TEXT = {
     eventType: 'Peristiwa Bersejarah**pilihan',
     whatToImprove: 'Apa yang ingin diperbaiki*pilihan',
     uploadAvatar: 'Muat naik gambar profil',
+    uploadAvatarOptional: '(pilihan)',
     male: 'Lelaki',
     female: 'Perempuan',
     genderRequired: '(*diperlukan)',
@@ -395,6 +403,7 @@ const TEXT = {
     eventType: 'Eventus Historiae**optio',
     whatToImprove: 'Quid emendare vis*optio',
     uploadAvatar: 'Upload Avatar',
+    uploadAvatarOptional: '(Optional)',
     male: 'Male',
     female: 'Female',
     genderRequired: '(*required)',
@@ -858,7 +867,7 @@ export default function RegisterPage() {
     let slowTimer: any = setTimeout(() => setSlowNetwork(true), 1500);
     
     try {
-      if (!avatarFile) { setError(t.errorAvatar); return; }
+      // 頭像不再是必填項，移除驗證
       if (!gender) { setError(t.errorGender); return; }
       if (!validateEmail(email)) { setError(t.errorEmailFormat); return; }
       if (!validatePassword(password)) { setError(t.errorPasswordFormat); return; }
@@ -948,7 +957,7 @@ export default function RegisterPage() {
       await setDoc(doc(db, 'profiles', userCredential.user.uid), {
         nickname,
         email,
-        avatar: avatarDownloadUrl,
+        avatar: avatarDownloadUrl || '', // 如果沒有頭像，使用空字符串
         gender,
         country,
         region,
@@ -1607,7 +1616,7 @@ export default function RegisterPage() {
                             <span style={{ display: 'flex', width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center', color: '#bbb', fontSize: 32 }}>+</span>
                           )}
                         </div>
-                        <span style={{ color: '#6B5BFF', fontWeight: 700, fontSize: 15 }}>{t.uploadAvatar}</span>
+                        <span style={{ color: '#6B5BFF', fontWeight: 700, fontSize: 15 }}>{t.uploadAvatar} <span style={{ color: '#666', fontWeight: 400, fontSize: 12 }}>{t.uploadAvatarOptional}</span></span>
                         <input id="avatar-upload" type="file" accept="image/*" style={{ display: 'none' }} onChange={e => {
                           if (e.target.files && e.target.files[0]) {
                             setAvatarFile(e.target.files[0]);

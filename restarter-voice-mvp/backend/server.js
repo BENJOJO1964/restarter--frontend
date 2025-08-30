@@ -8,13 +8,23 @@ const isTestMode = process.env.NODE_ENV === 'test' || process.env.TEST_MODE === 
 let serviceAccount;
 if (process.env.FIREBASE_SERVICE_ACCOUNT) {
   // 從環境變量讀取服務帳戶密鑰
-  serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+  try {
+    serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+  } catch (error) {
+    console.error('Firebase服務帳戶JSON解析失敗:', error.message);
+    serviceAccount = null;
+  }
 } else {
   // 本地開發時使用文件
-  serviceAccount = require('./serviceAccountKey.json');
+  try {
+    serviceAccount = require('./serviceAccountKey.json');
+  } catch (error) {
+    console.error('找不到serviceAccountKey.json文件:', error.message);
+    serviceAccount = null;
+  }
 }
 
-if (!admin.apps.length) {
+if (!admin.apps.length && serviceAccount) {
   try {
     admin.initializeApp({
       credential: admin.credential.cert(serviceAccount)
@@ -25,9 +35,11 @@ if (!admin.apps.length) {
     if (isTestMode) {
       console.log('測試模式：繼續運行，跳過Firebase');
     } else {
-      throw error;
+      console.log('生產模式：繼續運行，但Firebase功能可能不可用');
     }
   }
+} else if (!serviceAccount) {
+  console.log('跳過Firebase初始化：缺少服務帳戶配置');
 }
 // server.js - WebSocket + REST API 入口
 const express = require('express');
@@ -95,6 +107,9 @@ const weatherRouter = require('./routes/weather');
 const socialIntegrationRouter = require('./routes/social-integration-assessment');
 const emailVerificationRouter = require('./routes/email-verification');
 const adminFeedbackRouter = require('./routes/admin-feedback');
+const jobsRouter = require('./routes/jobs');
+const companyJobsRouter = require('./routes/company-jobs');
+const resourcesRouter = require('./routes/resources');
 
 // const stripePaymentRouter = require('./routes/stripe-payment');
 
@@ -118,6 +133,9 @@ app.use('/api/subscription', subscriptionRouter);
 // app.use('/api/stripe', stripePaymentRouter);
 app.use('/api/weather', weatherRouter);
 app.use('/api/social-integration-assessment', socialIntegrationRouter);
+app.use('/api/jobs', jobsRouter);
+app.use('/api/company-jobs', companyJobsRouter);
+app.use('/api/resources', resourcesRouter);
 
 
 // 後端只提供API，不提供靜態文件
@@ -125,6 +143,8 @@ app.get('/', (req, res) => {
   res.json({ 
     message: 'Restarter Backend API', 
     status: 'running',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development',
     endpoints: [
       '/api/tts',
       '/api/gpt', 
@@ -136,14 +156,15 @@ app.get('/', (req, res) => {
       '/api/mind-garden',
       '/api/mission-ai',
       '/api/story',
-
       '/api/send-message',
       '/api/mood',
       '/api/feedback',
       '/api/subscription',
       '/api/weather',
       '/api/social-integration-assessment',
-
+      '/api/jobs',
+      '/api/company-jobs',
+      '/api/resources',
     ]
   });
 });
@@ -153,10 +174,34 @@ app.get('/favicon.ico', (req, res) => {
   res.status(204).end(); // 返回無內容狀態
 });
 
-const PORT = process.env.PORT || 3001;
-server.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server listening on port ${PORT} and accepting external connections`);
-});
+// 始終導出app，讓Vercel可以處理
+module.exports = app;
+
+// 只在非Vercel環境中啟動服務器
+if (!process.env.VERCEL) {
+  const PORT = process.env.PORT || 3001;
+
+  // 添加錯誤處理
+  process.on('uncaughtException', (error) => {
+    console.error('未捕獲的異常:', error);
+  });
+
+  process.on('unhandledRejection', (reason, promise) => {
+    console.error('未處理的Promise拒絕:', reason);
+  });
+
+  server.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server listening on port ${PORT} and accepting external connections`);
+    console.log('Environment:', process.env.NODE_ENV || 'development');
+    console.log('Firebase initialized:', admin.apps.length > 0);
+  }).on('error', (error) => {
+    console.error('服務器啟動失敗:', error);
+  });
+} else {
+  console.log('Vercel環境：Express應用已導出');
+  console.log('Environment:', process.env.NODE_ENV || 'development');
+  console.log('Firebase initialized:', admin.apps.length > 0);
+}
 
 app.get('/health', (req, res) => {
   res.send({

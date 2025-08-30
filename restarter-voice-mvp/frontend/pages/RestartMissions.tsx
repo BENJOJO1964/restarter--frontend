@@ -431,7 +431,13 @@ export default function RestartMissions() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             {user ? (
               <>
-                <img src={user.photoURL || '/ctx-logo.png'} alt="avatar" style={{ width: 28, height: 28, borderRadius: '50%', objectFit: 'cover', border: '2px solid #6B5BFF' }} />
+                {user.photoURL ? (
+  <img src={user.photoURL} alt="avatar" style={{ width: 28, height: 28, borderRadius: '50%', objectFit: 'cover', border: '2px solid #6B5BFF' }} />
+) : (
+  <div style={{ width: 28, height: 28, borderRadius: '50%', background: '#6B5BFF', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, fontWeight: 'bold', border: '2px solid #6B5BFF' }}>
+    {user.displayName ? user.displayName.charAt(0).toUpperCase() : 'U'}
+  </div>
+)}
                 <span style={{ color: '#6B5BFF', fontWeight: 600, fontSize: 12, maxWidth: 60, overflow: 'hidden', textOverflow: 'ellipsis' }}>{user.displayName || user.email || '用戶'}</span>
                 <button 
                   className="topbar-btn" 
@@ -599,7 +605,13 @@ export default function RestartMissions() {
             {user ? (
               <>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <img src={user.photoURL || '/ctx-logo.png'} alt="avatar" style={{ width: 36, height: 36, borderRadius: '50%', objectFit: 'cover', border: '2px solid #90caf9' }} />
+                  {user.photoURL ? (
+  <img src={user.photoURL} alt="avatar" style={{ width: 36, height: 36, borderRadius: '50%', objectFit: 'cover', border: '2px solid #90caf9' }} />
+) : (
+  <div style={{ width: 36, height: 36, borderRadius: '50%', background: '#90caf9', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, fontWeight: 'bold', border: '2px solid #90caf9' }}>
+    {user.displayName ? user.displayName.charAt(0).toUpperCase() : 'U'}
+  </div>
+)}
                   <span style={{ color: '#1976d2', fontWeight: 700, fontSize: 16 }}>{user.displayName || user.email || '用戶'}</span>
                   <button className="topbar-btn" onClick={async () => { await signOut(auth); }} style={{ background: '#fff', color: '#ff6347', border: '2px solid #ffb4a2', borderRadius: 8, fontWeight: 700, fontSize: 16, padding: '8px 14px', marginLeft: 6 }}>{LOGOUT_TEXT[lang]}</button>
                 </div>

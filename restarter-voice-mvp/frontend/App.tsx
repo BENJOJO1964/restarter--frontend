@@ -59,10 +59,17 @@ import Plans from './pages/Plans';
 import Payment from './pages/Payment';
 import Upgrade from './pages/Upgrade';
 import Profile from './pages/Profile';
+import ResumeBuilder from './pages/ResumeBuilder';
+import JobFinder from './pages/JobFinder';
+import Resources from './pages/Resources';
+import SuccessStories from './pages/SuccessStories';
 import PaymentInfo from './pages/PaymentInfo';
 import Contact from './pages/Contact';
 import TokenTest from './pages/TokenTest';
 import VideoIntro from './pages/VideoIntro';
+import LandingPage from './pages/LandingPage';
+import AdLandingPage from './pages/AdLandingPage';
+import ScrollTestPage from './pages/ScrollTestPage';
 
 import TestModeButton from './components/TestModeButton';
 
@@ -136,6 +143,9 @@ function App() {
                   <Route path="/splash" element={<SplashScreen />} />
                   <Route path="/terms" element={<TermsPage />} />
                   <Route path="/" element={<Home />} />
+                  <Route path="/landing" element={<LandingPage />} />
+                  <Route path="/ad" element={<AdLandingPage />} />
+                  <Route path="/scroll-test" element={<ScrollTestPage />} />
                   <Route path="/home" element={<Home />} />
                   <Route path="/register" element={<RegisterPage />} />
                   <Route path="/confirm-registration" element={<ConfirmRegistration />} />
@@ -184,6 +194,10 @@ function App() {
                   <Route path="/payment" element={<Payment />} />
                   <Route path="/upgrade" element={<Upgrade />} />
                   <Route path="/profile" element={<Profile />} />
+                  <Route path="/resume-builder" element={<ResumeBuilder />} />
+                  <Route path="/job-finder" element={<JobFinder />} />
+                  <Route path="/resources" element={<Resources />} />
+                  <Route path="/success-stories" element={<SuccessStories />} />
                   <Route path="/payment-info" element={<PaymentInfo />} />
                   <Route path="/contact" element={<Contact />} />
                   {/* Token 測試路由 - 僅在開發環境顯示 */}

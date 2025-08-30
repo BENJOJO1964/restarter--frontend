@@ -555,7 +555,7 @@ export default function MyStory() {
   const [showRecordingConfirm, setShowRecordingConfirm] = useState(false);
   const [mediaRecorder, setMediaRecorder] = useState<MediaRecorder | null>(null);
   const [recordingTimer, setRecordingTimer] = useState<NodeJS.Timeout | null>(null);
-  const [userAvatar, setUserAvatar] = useState<string>('/avatars/Derxl.png');
+  const [userAvatar, setUserAvatar] = useState<string>('');
   const [audioChunks, setAudioChunks] = useState<Blob[]>([]);
   const audioChunksRef = useRef<Blob[]>([]);
 
@@ -1039,7 +1039,13 @@ export default function MyStory() {
               </button>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <img src={getAuth().currentUser?.photoURL || '/ctx-logo.png'} alt="avatar" style={{ width: 28, height: 28, borderRadius: '50%', objectFit: 'cover', border: '2px solid #6B5BFF' }} />
+                {getAuth().currentUser?.photoURL ? (
+  <img src={getAuth().currentUser.photoURL} alt="avatar" style={{ width: 28, height: 28, borderRadius: '50%', objectFit: 'cover', border: '2px solid #6B5BFF' }} />
+) : (
+  <div style={{ width: 28, height: 28, borderRadius: '50%', background: '#6B5BFF', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, fontWeight: 'bold', border: '2px solid #6B5BFF' }}>
+    {getAuth().currentUser?.displayName ? getAuth().currentUser.displayName.charAt(0).toUpperCase() : 'U'}
+  </div>
+)}
                 <span style={{ color: '#6B5BFF', fontWeight: 600, fontSize: 12, maxWidth: 60, overflow: 'hidden', textOverflow: 'ellipsis' }}>{getAuth().currentUser?.displayName || getAuth().currentUser?.email || '用戶'}</span>
                 <button 
                   className="topbar-btn" 
@@ -1224,31 +1230,33 @@ export default function MyStory() {
               boxShadow: '0 4px 16px rgba(0,0,0,0.1)',
               overflow: 'hidden'
             }}>
-              <img 
-                src={userAvatar} 
-                alt="用戶頭像"
-                style={{
+              {userAvatar ? (
+                <img 
+                  src={userAvatar} 
+                  alt="用戶頭像"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    borderRadius: '50%'
+                  }}
+                />
+              ) : (
+                <div style={{
                   width: '100%',
                   height: '100%',
-                  objectFit: 'cover',
-                  borderRadius: '50%'
-                }}
-                onError={(e) => {
-                  // 如果圖片加載失敗，顯示默認頭像
-                  const target = e.currentTarget as HTMLImageElement;
-                  target.style.display = 'none';
-                  const fallback = target.nextElementSibling as HTMLElement;
-                  if (fallback) {
-                    fallback.style.display = 'flex';
-                  }
-                }}
-              />
-              <span style={{ 
-                fontSize: '35px', 
-                color: '#4CAF50',
-                display: 'none',
-                position: 'absolute'
-              }}>👤</span>
+                  borderRadius: '50%',
+                  background: '#4CAF50',
+                  color: 'white',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '28px',
+                  fontWeight: 'bold'
+                }}>
+                  {getAuth().currentUser?.displayName ? getAuth().currentUser.displayName.charAt(0).toUpperCase() : 'U'}
+                </div>
+              )}
             </div>
             
             <h2 style={{ 

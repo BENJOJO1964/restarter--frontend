@@ -1,0 +1,52 @@
+🗑️  frontend/node_modules
+🗑️  backend/node_modules
+🗑️  mobile_app/.dart_tool
+🗑️  ./mobile_app/build
+🗑️  ./frontend/dist
+🗑️  ./mobile_app/macos/.DS_Store
+🗑️  ./mobile_app/.DS_Store
+🗑️  ./mobile_app/ios/.DS_Store
+🗑️  ./.DS_Store
+🗑️  ./locales/.DS_Store
+🗑️  ./frontend/.DS_Store
+🗑️  ./frontend/public/.DS_Store
+🗑️  ./frontend/public/locales/.DS_Store
+🗑️  ./frontend/public/videos/.DS_Store
+🗑️  ./frontend/pglite-debug.log
+🗑️  ./backend/.DS_Store
+🗑️  ./videos/.DS_Store
+🗑️  ./puzzle12.png
+🗑️  ./frontend/public/videos/clarity.mp4
+🗑️  ./frontend/public/videos/confusion .mp4
+🗑️  ./frontend/public/videos/lost.mp4
+🗑️  ./frontend/public/videos/teasing.mp4
+🗑️  ./frontend/public/videos/reproach.mp4
+🗑️  ./frontend/public/videos/Restarter-cn.mp4
+🗑️  ./videos/clarity.mp4
+🗑️  ./videos/confusion .mp4
+🗑️  ./videos/regret.mp4
+🗑️  ./videos/encouragement.mp4
+🗑️  ./videos/lost.mp4
+🗑️  ./videos/teasing.mp4
+🗑️  ./videos/admiration.mp4
+🗑️  ./videos/disappointment .mp4
+🗑️  ./videos/reproach.mp4
+🗑️  ./videos/motivation.mp4
+🗑️  ./videos/reluctance .mp4
+🗑️  ./videos/joy.mp4
+🗑️  ./videos/breakthrough.mp4
+🗑️  ./videos/affection.mp4
+🗑️  ./test-optimized-landing-page.sh
+🗑️  ./mobile_app/test/widget_test.dart
+🗑️  ./test-local-environment.sh
+🗑️  ./test-server-status.sh
+🗑️  ./backend/test-sendgrid-verification.js
+🗑️  ./backend/test-resend-detailed.js
+🗑️  ./backend/test-email-send.js
+🗑️  ./backend/test-registration-email.js
+🗑️  ./backend/test-email-service.js
+🗑️  ./backend/test-email-verification.js
+🗑️  ./quick-test-optimizations.sh
+🗑️  ./comprehensive-test.sh
+🗑️  ./test-mobile-connectivity.sh
+🗑️  ./test-landing-page.sh

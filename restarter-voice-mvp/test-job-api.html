@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>職位API測試</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 8px; }
+        .result { background: #f5f5f5; padding: 10px; border-radius: 4px; margin-top: 10px; }
+        button { padding: 8px 16px; margin: 5px; background: #6B5BFF; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        input, select { padding: 8px; margin: 5px; border: 1px solid #ddd; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>職位API測試頁面</h1>
+    
+    <div class="test-section">
+        <h3>基本搜尋測試</h3>
+        <button onclick="testBasicSearch()">測試基本搜尋</button>
+        <div id="basic-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>關鍵字搜尋測試</h3>
+        <input type="text" id="keyword" placeholder="輸入關鍵字" value="工程師">
+        <button onclick="testKeywordSearch()">測試關鍵字搜尋</button>
+        <div id="keyword-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>地點篩選測試</h3>
+        <select id="location">
+            <option value="">所有地點</option>
+            <option value="台北市">台北市</option>
+            <option value="新北市">新北市</option>
+            <option value="台中市">台中市</option>
+            <option value="台南市">台南市</option>
+        </select>
+        <button onclick="testLocationSearch()">測試地點篩選</button>
+        <div id="location-result" class="result"></div>
+    </div>
+
+    <script>
+        async function testBasicSearch() {
+            try {
+                const response = await fetch('/api/jobs/search');
+                const result = await response.json();
+                document.getElementById('basic-result').innerHTML = 
+                    `<strong>成功！</strong><br>職位數量: ${result.data.jobs.length}<br>資料來源: ${result.data.note}`;
+            } catch (error) {
+                document.getElementById('basic-result').innerHTML = 
+                    `<strong>錯誤！</strong><br>${error.message}`;
+            }
+        }
+        
+        async function testKeywordSearch() {
+            try {
+                const keyword = document.getElementById('keyword').value;
+                const params = new URLSearchParams();
+                if (keyword) params.append('keyword', encodeURIComponent(keyword));
+                
+                const response = await fetch(`/api/jobs/search?${params.toString()}`);
+                const result = await response.json();
+                
+                const matchingJobs = result.data.jobs.filter(job => 
+                    job.title.includes(keyword) || job.description.includes(keyword)
+                );
+                
+                document.getElementById('keyword-result').innerHTML = 
+                    `<strong>成功！</strong><br>關鍵字: ${keyword}<br>匹配職位: ${matchingJobs.length}<br>總職位: ${result.data.jobs.length}`;
+            } catch (error) {
+                document.getElementById('keyword-result').innerHTML = 
+                    `<strong>錯誤！</strong><br>${error.message}`;
+            }
+        }
+        
+        async function testLocationSearch() {
+            try {
+                const location = document.getElementById('location').value;
+                const params = new URLSearchParams();
+                if (location) params.append('location', encodeURIComponent(location));
+                
+                const response = await fetch(`/api/jobs/search?${params.toString()}`);
+                const result = await response.json();
+                
+                const locationJobs = result.data.jobs.filter(job => 
+                    !location || job.location.includes(location)
+                );
+                
+                document.getElementById('location-result').innerHTML = 
+                    `<strong>成功！</strong><br>地點: ${location || '所有地點'}<br>匹配職位: ${locationJobs.length}<br>總職位: ${result.data.jobs.length}`;
+            } catch (error) {
+                document.getElementById('location-result').innerHTML = 
+                    `<strong>錯誤！</strong><br>${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>

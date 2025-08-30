@@ -54,6 +54,7 @@ const TEXTS: Record<LanguageCode, any> = {
     changeAvatar: '更換我的頭像',
     aiReplyTemplate: (text: string) => `AI陪聊：我明白你的意思，「${text}」，讓我再多聽你說說...`,
     aiSystemPrompt: '你是一個溫暖、善解人意的虛擬人，請用鼓勵、正向語氣回應。',
+    careerPrompt: '你是一個專業的職涯顧問，擅長幫助用戶進行職業規劃、技能評估、求職策略等。請提供實用、具體的建議。',
     speechErrorBrowser: '此瀏覽器不支援語音辨識，請改用 Chrome/Edge。',
     speechErrorFail: '語音辨識失敗，請再試一次。',
     speechErrorNoDetect: '沒有偵測到語音，請再試一次。',
@@ -66,6 +67,9 @@ const TEXTS: Record<LanguageCode, any> = {
     tapToTalk: '按一下開始語音聊天...',
     aiReplying: 'AI 正在回覆中，輸入新訊息可立即打斷',
     recognizing: '正在辨識中...',
+    careerMode: '職涯諮詢模式',
+    chatMode: '一般聊天模式',
+    careerWelcome: (name: string) => `嗨，${name}，我是你的職涯顧問！我可以幫助你進行職業規劃、技能評估、求職策略等。請告訴我你的職業目標或遇到的問題。`,
   },
   'zh-CN': {
     friend: '朋友',
@@ -74,6 +78,7 @@ const TEXTS: Record<LanguageCode, any> = {
     changeAvatar: '更换我的头像',
     aiReplyTemplate: (text: string) => `AI陪聊：我明白你的意思，"${text}"，让我再多听你聊聊...`,
     aiSystemPrompt: '你是一个温暖、善解人意的虚拟人，请用鼓励、正向语气回应。',
+    careerPrompt: '你是一个专业的职涯顾问，擅长帮助用户进行职业规划、技能评估、求职策略等。请提供实用、具体的建议。',
     speechErrorBrowser: '此浏览器不支持语音识别，请改用 Chrome/Edge。',
     speechErrorFail: '语音识别失败，请再试一次。',
     speechErrorNoDetect: '没有检测到语音，请再试一次。',
@@ -86,6 +91,9 @@ const TEXTS: Record<LanguageCode, any> = {
     tapToTalk: '点一下开始语音聊天...',
     aiReplying: 'AI 正在回复中，输入新消息可立即打断',
     recognizing: '正在识别中...',
+    careerMode: '职涯咨询模式',
+    chatMode: '一般聊天模式',
+    careerWelcome: (name: string) => `嗨，${name}，我是你的职涯顾问！我可以帮助你进行职业规划、技能评估、求职策略等。请告诉我你的职业目标或遇到的问题。`,
   },
   'en': {
     friend: 'Friend',
@@ -94,6 +102,7 @@ const TEXTS: Record<LanguageCode, any> = {
     changeAvatar: 'Change My Avatar',
     aiReplyTemplate: (text: string) => `AI Chat: I understand what you mean, "${text}", let me hear more from you...`,
     aiSystemPrompt: 'You are a warm, empathetic virtual person. Please respond in an encouraging and positive tone.',
+    careerPrompt: 'You are a professional career advisor, skilled in helping users with career planning, skill assessment, job search strategies, etc. Please provide practical and specific advice.',
     speechErrorBrowser: 'This browser does not support speech recognition. Please use Chrome/Edge.',
     speechErrorFail: 'Speech recognition failed, please try again.',
     speechErrorNoDetect: 'No speech detected, please try again.',
@@ -106,6 +115,9 @@ const TEXTS: Record<LanguageCode, any> = {
     tapToTalk: 'Tap to start voice chat...',
     aiReplying: 'AI is replying, type a new message to interrupt.',
     recognizing: 'Recognizing...',
+    careerMode: 'Career Consultation Mode',
+    chatMode: 'General Chat Mode',
+    careerWelcome: (name: string) => `Hi, ${name}, I'm your career advisor! I can help you with career planning, skill assessment, job search strategies, etc. Please tell me your career goals or any issues you're facing.`,
   },
   'ja': {
     friend: '友達',
@@ -114,6 +126,7 @@ const TEXTS: Record<LanguageCode, any> = {
     changeAvatar: 'アバターを変更',
     aiReplyTemplate: (text: string) => `AIチャット：あなたの言うこと、「${text}」、わかります。もっと聞かせてください...`,
     aiSystemPrompt: 'あなたは温かく、共感的なバーチャルパーソンです。励ましとポジティブなトーンで応答してください。',
+    careerPrompt: 'あなたは専門的なキャリアアドバイザーです。ユーザーのキャリアプランニング、スキル評価、求職戦略などを支援するのが得意です。実用的で具体的なアドバイスを提供してください。',
     speechErrorBrowser: 'このブラウザは音声認識に対応していません。Chrome/Edgeを使用してください。',
     speechErrorFail: '音声認識に失敗しました。もう一度お試しください。',
     speechErrorNoDetect: '音声が検出されませんでした。もう一度お試しください。',
@@ -126,6 +139,9 @@ const TEXTS: Record<LanguageCode, any> = {
     tapToTalk: 'タップして音声チャット開始',
     aiReplying: 'AIが返信中です。新しいメッセージを入力するとすぐに中断できます',
     recognizing: '認識中...',
+    careerMode: 'キャリア相談モード',
+    chatMode: '一般チャットモード',
+    careerWelcome: (name: string) => `こんにちは、${name}さん。私はあなたのキャリアアドバイザーです！キャリアプランニング、スキル評価、求職戦略などをお手伝いできます。あなたのキャリア目標やお困りのことを教えてください。`,
   },
   'ko': {
     friend: '친구',
@@ -134,6 +150,7 @@ const TEXTS: Record<LanguageCode, any> = {
     changeAvatar: '내 아바타 변경',
     aiReplyTemplate: (text: string) => `AI 채팅: 무슨 말인지 알겠어, "${text}", 더 얘기해줘...`,
     aiSystemPrompt: '당신은 따뜻하고 공감 능력이 뛰어난 가상 인간입니다. 격려하고 긍정적인 톤으로 응답해주세요.',
+    careerPrompt: '당신은 전문적인 커리어 어드바이저입니다. 사용자의 커리어 플래닝, 스킬 평가, 구직 전략 등을 도와주는 것이 특기입니다. 실용적이고 구체적인 조언을 제공해주세요.',
     speechErrorBrowser: '이 브라우저는 음성 인식을 지원하지 않습니다. Chrome/Edge를 사용해주세요.',
     speechErrorFail: '음성 인식이 실패했습니다. 다시 시도해주세요.',
     speechErrorNoDetect: '음성이 감지되지 않았습니다. 다시 시도해주세요.',
@@ -146,6 +163,9 @@ const TEXTS: Record<LanguageCode, any> = {
     tapToTalk: '탭하여 음성 채팅 시작...',
     aiReplying: 'AI가 답장 중입니다. 새 메시지를 입력하여 중단할 수 있습니다.',
     recognizing: '인식 중...',
+    careerMode: '커리어 상담 모드',
+    chatMode: '일반 채팅 모드',
+    careerWelcome: (name: string) => `안녕, ${name}. 나는 너의 커리어 어드바이저야! 커리어 플래닝, 스킬 평가, 구직 전략 등을 도와줄 수 있어. 너의 커리어 목표나 고민하는 일을 말해줘.`,
   },
   'vi': {
     friend: 'Bạn bè',
@@ -154,6 +174,7 @@ const TEXTS: Record<LanguageCode, any> = {
     changeAvatar: 'Thay đổi Avatar của tôi',
     aiReplyTemplate: (text: string) => `Trò chuyện AI: Tôi hiểu ý bạn, "${text}", hãy cho tôi nghe thêm...`,
     aiSystemPrompt: 'Bạn là một người ảo ấm áp, đồng cảm. Vui lòng trả lời bằng giọng điệu khích lệ và tích cực.',
+    careerPrompt: 'Bạn là một cố vấn nghề nghiệp chuyên nghiệp, có kỹ năng giúp người dùng lập kế hoạch nghề nghiệp, đánh giá kỹ năng, chiến lược tìm việc, v.v. Vui lòng đưa ra lời khuyên thực tế và cụ thể.',
     speechErrorBrowser: 'Trình duyệt này không hỗ trợ nhận dạng giọng nói. Vui lòng sử dụng Chrome/Edge.',
     speechErrorFail: 'Nhận dạng giọng nói thất bại, vui lòng thử lại.',
     speechErrorNoDetect: 'Không phát hiện thấy giọng nói, vui lòng thử lại.',
@@ -166,6 +187,9 @@ const TEXTS: Record<LanguageCode, any> = {
     tapToTalk: 'Nhấn để bắt đầu trò chuyện thoại...',
     aiReplying: 'AI đang trả lời, nhập tin nhắn mới để ngắt.',
     recognizing: 'Đang nhận dạng...',
+    careerMode: 'Chế độ tư vấn nghề nghiệp',
+    chatMode: 'Chế độ trò chuyện chung',
+    careerWelcome: (name: string) => `Chào, ${name}. Tôi là cố vấn nghề nghiệp của bạn! Tôi có thể giúp bạn lập kế hoạch nghề nghiệp, đánh giá kỹ năng, chiến lược tìm việc, v.v. Vui lòng cho tôi biết mục tiêu nghề nghiệp hoặc vấn đề bạn đang gặp phải.`,
   },
   'th': {
     friend: 'เพื่อน',
@@ -174,6 +198,7 @@ const TEXTS: Record<LanguageCode, any> = {
     changeAvatar: 'เปลี่ยนอวตารของฉัน',
     aiReplyTemplate: (text: string) => `แชท AI: ฉันเข้าใจที่คุณหมายถึง, "${text}", เล่าให้ฉันฟังอีกสิ...`,
     aiSystemPrompt: 'คุณเป็นบุคคลเสมือนที่อบอุ่นและเข้าอกเข้าใจ โปรดตอบกลับด้วยน้ำเสียงที่ให้กำลังใจและเป็นบวก',
+    careerPrompt: 'คุณเป็นที่ปรึกษาด้านอาชีพมืออาชีพ มีความเชี่ยวชาญในการช่วยผู้ใช้วางแผนอาชีพ ประเมินทักษะ กลยุทธ์การหางาน ฯลฯ โปรดให้คำแนะนำที่เป็นประโยชน์และเฉพาะเจาะจง',
     speechErrorBrowser: 'เบราว์เซอร์นี้ไม่รองรับการจำแนกเสียงพูด กรุณาใช้ Chrome/Edge',
     speechErrorFail: 'การจำแนกเสียงพูดล้มเหลว กรุณาลองอีกครั้ง',
     speechErrorNoDetect: 'ไม่พบเสียงพูด กรุณาลองอีกครั้ง',
@@ -186,6 +211,9 @@ const TEXTS: Record<LanguageCode, any> = {
     tapToTalk: 'แตะเพื่อเริ่มแชทด้วยเสียง...',
     aiReplying: 'AI กำลังตอบกลับ, พิมพ์ข้อความใหม่เพื่อขัดจังหวะ',
     recognizing: 'กำลังจดจำ...',
+    careerMode: 'โหมดให้คำปรึกษาด้านอาชีพ',
+    chatMode: 'โหมดแชททั่วไป',
+    careerWelcome: (name: string) => `สวัสดี, ${name}. ฉันเป็นที่ปรึกษาด้านอาชีพของคุณ! ฉันสามารถช่วยคุณวางแผนอาชีพ ประเมินทักษะ กลยุทธ์การหางาน ฯลฯ โปรดบอกฉันเกี่ยวกับเป้าหมายอาชีพหรือปัญหาที่คุณกำลังเผชิญ`,
   },
   'la': {
     friend: 'Amicus',
@@ -194,6 +222,7 @@ const TEXTS: Record<LanguageCode, any> = {
     changeAvatar: 'Muta Imaginem Meam',
     aiReplyTemplate: (text: string) => `AI Curabitur: Intellego quid velis, "${text}", sine me plura a te audire...`,
     aiSystemPrompt: 'Tu es persona virtualis calida et empathetica. Quaeso responde sono hortanti et positivo.',
+    careerPrompt: 'Tu es consiliarius professionalis curriculi, peritus in adiuvandis usoribus cum consilio curriculi, aestimatione artium, strategiis quaerendi operis, etc. Quaeso praebe consilia utilia et specifica.',
     speechErrorBrowser: 'Hic navigator recognitionem vocis non sustinet. Quaeso utere Chrome/Edge.',
     speechErrorFail: 'Recognitio vocis defecit, quaeso iterum conare.',
     speechErrorNoDetect: 'Nulla oratio detecta, quaeso iterum conare.',
@@ -206,6 +235,9 @@ const TEXTS: Record<LanguageCode, any> = {
     tapToTalk: 'Tange ut colloquium vocale incipias...',
     aiReplying: 'AI respondet, scribe novum nuntium ad interrumpendum.',
     recognizing: 'Agnoscens...',
+    careerMode: 'Modus Consultationis Curriculi',
+    chatMode: 'Modus Colloquii Generalis',
+    careerWelcome: (name: string) => `Salve, ${name}. Consiliarius curriculi tuus sum! Possum te adiuvare cum consilio curriculi, aestimatione artium, strategiis quaerendi operis, etc. Quaeso narra mihi de propositis curriculi tuis vel quaestionibus quas patieris.`,
   },
   'ms': {
     friend: 'Kawan',
@@ -214,6 +246,7 @@ const TEXTS: Record<LanguageCode, any> = {
     changeAvatar: 'Tukar Avatar Saya',
     aiReplyTemplate: (text: string) => `Sembang AI: Saya faham maksud awak, "${text}", beritahu saya lagi...`,
     aiSystemPrompt: 'Anda adalah orang maya yang mesra dan empati. Sila balas dengan nada yang menggalakkan dan positif.',
+    careerPrompt: 'Anda adalah penasihat kerjaya profesional, mahir dalam membantu pengguna dengan perancangan kerjaya, penilaian kemahiran, strategi mencari kerja, dll. Sila berikan nasihat yang praktikal dan khusus.',
     speechErrorBrowser: 'Pelayar ini tidak menyokong pengecaman pertuturan. Sila gunakan Chrome/Edge.',
     speechErrorFail: 'Pengecaman pertuturan gagal, sila cuba lagi.',
     speechErrorNoDetect: 'Tiada pertuturan dikesan, sila cuba lagi.',
@@ -226,6 +259,9 @@ const TEXTS: Record<LanguageCode, any> = {
     tapToTalk: 'Ketik untuk memulakan sembang suara...',
     aiReplying: 'AI sedang membalas, taip mesej baru untuk mengganggu.',
     recognizing: 'Mengecam...',
+    careerMode: 'Mod Perundingan Kerjaya',
+    chatMode: 'Mod Sembang Umum',
+    careerWelcome: (name: string) => `Hai, ${name}. Saya penasihat kerjaya anda! Saya boleh membantu anda dengan perancangan kerjaya, penilaian kemahiran, strategi mencari kerja, dll. Sila beritahu saya tentang matlamat kerjaya atau isu yang anda hadapi.`,
   },
 };
 
@@ -310,6 +346,7 @@ export default function ChatCompanion() {
   const [lastTranscript, setLastTranscript] = useState('');
   const [showLangBox, setShowLangBox] = useState(false);
   const [showLegalMenu, setShowLegalMenu] = useState(false);
+  const [isCareerMode, setIsCareerMode] = useState(false);
   
   const { lang, setLang } = useLanguage();
   const t = TEXTS[lang] || TEXTS['zh-TW'];
@@ -676,7 +713,8 @@ export default function ChatCompanion() {
         setAIStreaming(true);
         
         try {
-          const stream = await generateResponse(text, lang, t.aiSystemPrompt, isTestMode);
+          const systemPrompt = isCareerMode ? t.careerPrompt : t.aiSystemPrompt;
+          const stream = await generateResponse(text, lang, systemPrompt, isTestMode);
           let fullReply = '';
           for await (const chunk of stream) {
             fullReply += chunk;
@@ -719,7 +757,8 @@ export default function ChatCompanion() {
     setAIStreaming(true);
     
     try {
-      const stream = await generateResponse(text, lang, t.aiSystemPrompt, isTestMode);
+      const systemPrompt = isCareerMode ? t.careerPrompt : t.aiSystemPrompt;
+      const stream = await generateResponse(text, lang, systemPrompt, isTestMode);
       let fullReply = '';
       for await (const chunk of stream) {
         fullReply += chunk;
@@ -858,6 +897,12 @@ export default function ChatCompanion() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', backgroundColor: '#f0f2f5' }}>
 
+      {/* Logo - 左上角 (僅電腦版顯示) */}
+      {!isMobile && (
+        <div style={{ position: 'fixed', top: 0, left: 0, zIndex: 9999, margin: 0, padding: 0 }}>
+          <img src="/ctx-logo.png" alt="CTX Logo" style={{ width: 182, height: 182, objectFit: 'contain', cursor: 'pointer', margin: 0, padding: 0, display: 'block' }} onClick={() => navigate('/')} />
+        </div>
+      )}
       
       {/* 響應式適配：根據 isMobile 狀態切換 */}
       {isMobile ? (
@@ -889,7 +934,13 @@ export default function ChatCompanion() {
             {user ? (
               <>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <img src={user.photoURL || '/ctx-logo.png'} alt="avatar" style={{ width: 36, height: 36, borderRadius: '50%', objectFit: 'cover', border: '2px solid #90caf9' }} />
+                  {user.photoURL ? (
+  <img src={user.photoURL} alt="avatar" style={{ width: 36, height: 36, borderRadius: '50%', objectFit: 'cover', border: '2px solid #90caf9' }} />
+) : (
+  <div style={{ width: 36, height: 36, borderRadius: '50%', background: '#90caf9', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, fontWeight: 'bold', border: '2px solid #90caf9' }}>
+    {user.displayName ? user.displayName.charAt(0).toUpperCase() : 'U'}
+  </div>
+)}
                   <span style={{ color: '#1976d2', fontWeight: 700, fontSize: 16 }}>{user.displayName || user.email || '用戶'}</span>
                   <button className="topbar-btn" onClick={async () => { await signOut(auth); }} style={{ background: '#fff', color: '#ff6347', border: '2px solid #ffb4a2', borderRadius: 8, fontWeight: 700, fontSize: 16, padding: '8px 14px', marginLeft: 6 }}>{LOGOUT_TEXT[lang]}</button>
 
@@ -1190,18 +1241,42 @@ export default function ChatCompanion() {
                   </div>
                   <button onClick={() => setShowAvatarSelect(true)} style={{ background: '#6B5BFF', color: '#fff', border: 'none', borderRadius: 6, padding: '4px 8px', fontWeight: 600, fontSize: 10, cursor: 'pointer', boxShadow: '0 2px 4px rgba(107, 91, 255, 0.3)', whiteSpace: 'nowrap' }}>{CHANGE_AVATAR_TEXT[lang]}</button>
                 </div>
-                {/* 中間歡迎訊息 */}
-                <div style={{ flex: 1, textAlign: 'center', padding: '0 12px' }}>
-                  <div style={{ fontSize: 14, color: '#666', lineHeight: '1.4' }}>
-                    <span style={{ fontWeight: 700, color: '#ff9800' }}>{getAvatarName(aiAvatar) || 'Fenny'}</span>
-                    <br />
-                    <span style={{ color: '#1976d2' }}>讓我們來聊天...</span>
-                    <br />
-                    <span style={{ color: '#1976d2' }}>{getAuth().currentUser?.displayName || getAuth().currentUser?.email || '用戶'}</span>
-                    <br />
-                    <span style={{ color: '#666' }}>聊什麼都可以喔 😊</span>
-                  </div>
+                            {/* 中間歡迎訊息 */}
+            <div style={{ flex: 1, textAlign: 'center', padding: '0 12px' }}>
+              <div style={{ fontSize: 14, color: '#666', lineHeight: '1.4' }}>
+                <span style={{ fontWeight: 700, color: '#ff9800' }}>{getAvatarName(aiAvatar) || 'Fenny'}</span>
+                <br />
+                <span style={{ color: '#1976d2' }}>
+                  {isCareerMode ? t.careerMode : (lang === 'zh-TW' ? '讓我們來聊天...' : lang === 'zh-CN' ? '让我们来聊天...' : lang === 'en' ? "Let's Chat..." : lang === 'ja' ? 'さあ、話そう...' : lang === 'ko' ? '함께 이야기해요...' : lang === 'th' ? 'มาคุยกันเถอะ...' : lang === 'vi' ? 'Hãy trò chuyện nào...' : lang === 'ms' ? 'Mari Berbual...' : 'Colloquamur...')}
+                </span>
+                <br />
+                <span style={{ color: '#1976d2' }}>{getAuth().currentUser?.displayName || getAuth().currentUser?.email || (lang === 'zh-TW' ? '用戶' : lang === 'zh-CN' ? '用户' : lang === 'en' ? 'User' : lang === 'ja' ? 'ユーザー' : lang === 'ko' ? '사용자' : lang === 'th' ? 'ผู้ใช้' : lang === 'vi' ? 'Người dùng' : lang === 'ms' ? 'Pengguna' : 'Usor')}</span>
+                <br />
+                <span style={{ color: '#666' }}>
+                  {isCareerMode ? (lang === 'zh-TW' ? '職業規劃、技能評估、求職策略 💼' : lang === 'zh-CN' ? '职业规划、技能评估、求职策略 💼' : lang === 'en' ? 'Career planning, skill assessment, job search strategies 💼' : lang === 'ja' ? 'キャリアプランニング、スキル評価、求職戦略 💼' : lang === 'ko' ? '커리어 플래닝, 스킬 평가, 구직 전략 💼' : lang === 'th' ? 'การวางแผนอาชีพ การประเมินทักษะ กลยุทธ์การหางาน 💼' : lang === 'vi' ? 'Lập kế hoạch nghề nghiệp, đánh giá kỹ năng, chiến lược tìm việc 💼' : lang === 'ms' ? 'Perancangan kerjaya, penilaian kemahiran, strategi mencari kerja 💼' : 'Consilium curriculi, aestimatio artium, strategiae quaerendi operis 💼') : (lang === 'zh-TW' ? '聊什麼都可以喔 😊' : lang === 'zh-CN' ? '聊什么都可以哦 😊' : lang === 'en' ? 'Anything is okay to talk about 😊' : lang === 'ja' ? '何でも話していいよ 😊' : lang === 'ko' ? '무엇이든 이야기해도 돼요 😊' : lang === 'th' ? 'คุยอะไรก็ได้เลย 😊' : lang === 'vi' ? 'Nói gì cũng được nhé 😊' : lang === 'ms' ? 'Boleh berbual apa sahaja 😊' : 'De omnibus loqui licet 😊')}
+                </span>
+                <br />
+                {/* 職業諮詢模式切換按鈕 */}
+                <div style={{ marginTop: 8 }}>
+                  <button
+                    onClick={() => setIsCareerMode(!isCareerMode)}
+                    style={{
+                      background: isCareerMode ? '#FF6B9D' : '#6B5BFF',
+                      color: '#fff',
+                      border: 'none',
+                      borderRadius: 16,
+                      padding: '6px 12px',
+                      fontSize: 11,
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease'
+                    }}
+                  >
+                    {isCareerMode ? `💼 ${t.careerMode}` : `💬 ${t.chatMode}`}
+                  </button>
                 </div>
+              </div>
+            </div>
                 {/* 使用者頭像 - 手機版樣式 */}
                 <div style={{ width: 80, height: 80, borderRadius: '50% / 45%', border: '4px solid #2196f3', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', overflow: 'visible' }}>
                   <img src={getAuth().currentUser?.photoURL || '/ctx-logo.png'} alt="user" style={{ width: 72, height: 72, minWidth: 72, minHeight: 72, borderRadius: '50%', objectFit: 'cover', border: 'none', verticalAlign: 'bottom' }} />
