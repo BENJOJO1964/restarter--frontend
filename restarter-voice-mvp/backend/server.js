@@ -107,9 +107,6 @@ const weatherRouter = require('./routes/weather');
 const socialIntegrationRouter = require('./routes/social-integration-assessment');
 const emailVerificationRouter = require('./routes/email-verification');
 const adminFeedbackRouter = require('./routes/admin-feedback');
-const jobsRouter = require('./routes/jobs');
-const companyJobsRouter = require('./routes/company-jobs');
-const resourcesRouter = require('./routes/resources');
 
 // const stripePaymentRouter = require('./routes/stripe-payment');
 
@@ -133,9 +130,6 @@ app.use('/api/subscription', subscriptionRouter);
 // app.use('/api/stripe', stripePaymentRouter);
 app.use('/api/weather', weatherRouter);
 app.use('/api/social-integration-assessment', socialIntegrationRouter);
-app.use('/api/jobs', jobsRouter);
-app.use('/api/company-jobs', companyJobsRouter);
-app.use('/api/resources', resourcesRouter);
 
 
 // 後端只提供API，不提供靜態文件
@@ -162,9 +156,6 @@ app.get('/', (req, res) => {
       '/api/subscription',
       '/api/weather',
       '/api/social-integration-assessment',
-      '/api/jobs',
-      '/api/company-jobs',
-      '/api/resources',
     ]
   });
 });
