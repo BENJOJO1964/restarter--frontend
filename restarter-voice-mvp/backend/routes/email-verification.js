@@ -1,11 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 
 // 儲存待驗證的註冊
 const pendingRegistrations = new Map();
 
-// 創建 Gmail SMTP transporter
+// 初始化 Resend 郵件服務
+const resend = new Resend(process.env.RESEND_API_KEY || 're_dLgquqs9_PhX32DutRnPrtSgJP35kNCiy');
+
+// 創建 Gmail SMTP transporter (備用)
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -51,9 +55,9 @@ router.post('/send-code', async (req, res) => {
 
     // 發送驗證碼郵件
     try {
-      // 嘗試使用Gmail SMTP發送
+      // 優先使用 Resend 發送郵件
       const mailOptions = {
-        from: `Restarter驗證系統 <${process.env.EMAIL_USER}>`,
+        from: 'onboarding@resend.dev',
         to: email,
         subject: 'Restarter - 電子郵件驗證',
         html: `
@@ -75,25 +79,65 @@ router.post('/send-code', async (req, res) => {
         `
       };
 
-      const result = await transporter.sendMail(mailOptions);
+      // 使用 Resend 發送
+      const result = await resend.emails.send(mailOptions);
 
-      console.log('✅ 驗證碼郵件發送成功 (Gmail SMTP)');
-      console.log('郵件ID:', result.messageId);
+      if (result.data?.id) {
+        console.log('✅ 驗證碼郵件發送成功 (Resend)');
+        console.log('郵件ID:', result.data.id);
 
-      res.json({ 
-        success: true, 
-        message: '驗證碼已發送到您的電子郵件' 
-      });
+        res.json({ 
+          success: true, 
+          message: '驗證碼已發送到您的電子郵件' 
+        });
+      } else {
+        throw new Error(result.error || 'Resend 發送失敗');
+      }
 
     } catch (emailError) {
-      console.error('❌ Gmail SMTP發送失敗，嘗試使用Resend備用方案:', emailError.message);
+      console.error('❌ Resend發送失敗，嘗試使用Gmail SMTP備用方案:', emailError.message);
       
-      // 如果Gmail失敗，記錄錯誤並返回失敗訊息
-      console.error('❌ Gmail SMTP認證失敗，需要重新設定Gmail應用程式密碼');
-      res.status(500).json({ 
-        success: false, 
-        message: '郵件服務暫時不可用，請稍後再試或聯繫客服' 
-      });
+      try {
+        // 備用方案：使用 Gmail SMTP
+        const gmailMailOptions = {
+          from: `Restarter驗證系統 <${process.env.EMAIL_USER}>`,
+          to: email,
+          subject: 'Restarter - 電子郵件驗證',
+          html: `
+            <div style="font-size:16px;line-height:1.7;max-width:600px;margin:0 auto;">
+              <h2 style="color:#6B5BFF;margin-bottom:20px;">🔐 電子郵件驗證</h2>
+              <div style="background:#f7f8fa;padding:20px;border-radius:8px;margin-bottom:20px;">
+                <p style="margin:0 0 15px 0;">您的驗證碼是：</p>
+                <div style="background:#6B5BFF;color:white;padding:15px;border-radius:8px;text-align:center;font-size:24px;font-weight:bold;margin:15px 0;">
+                  ${verificationCode}
+                </div>
+                <p style="margin:15px 0 0 0;color:#666;font-size:14px;">
+                  此驗證碼將在 10 分鐘後過期。如果這不是您的操作，請忽略此郵件。
+                </p>
+              </div>
+              <div style="text-align:center;color:#666;font-size:14px;">
+                此郵件由 Restarter 驗證系統自動發送
+              </div>
+            </div>
+          `
+        };
+
+        const gmailResult = await transporter.sendMail(gmailMailOptions);
+        console.log('✅ 驗證碼郵件發送成功 (Gmail SMTP)');
+        console.log('郵件ID:', gmailResult.messageId);
+
+        res.json({ 
+          success: true, 
+          message: '驗證碼已發送到您的電子郵件' 
+        });
+
+      } catch (gmailError) {
+        console.error('❌ Gmail SMTP也失敗:', gmailError.message);
+        res.status(500).json({ 
+          success: false, 
+          message: '郵件服務暫時不可用，請稍後再試或聯繫客服' 
+        });
+      }
     }
 
   } catch (error) {
