@@ -1153,13 +1153,7 @@ export default function Home() {
             </div>
           </div>
           
-          {/* 手機版職涯中心和訂閱方案按鈕 */}
-          <div style={{ width: '100%', padding: '0 16px', marginBottom: '16px', display: 'flex', flexDirection: 'column', gap: 12 }}>
-            <button onClick={() => navigate('/profile')} style={{ width: '100%', padding: '12px', borderRadius: 10, background: '#00CFFF', color: '#fff', fontWeight: 700, fontSize: 14, textDecoration: 'none', border: '2px solid #00CFFF', cursor: 'pointer', textAlign: 'center', display: 'block', boxSizing: 'border-box' }}>
-              {lang==='zh-TW'?'💼 職涯中心':'zh-CN'===lang?'💼 职涯中心':'en'===lang?'💼 Career Center':'ja'===lang?'💼 キャリアセンター':'ko'===lang?'💼 커리어 센터':'th'===lang?'💼 ศูนย์อาชีพ':'vi'===lang?'💼 Trung tâm nghề nghiệp':'ms'===lang?'💼 Pusat Kerjaya':'💼 Career Center'}
-            </button>
-            <span href="/plans" style={{ width: '100%', padding: '12px', borderRadius: 10, background: '#6B5BFF', color: '#fff', fontWeight: 700, fontSize: 14, textDecoration: 'none', border: '2px solid #6B5BFF', cursor: 'pointer', textAlign: 'center', display: 'block', boxSizing: 'border-box' }}>{MEMBER_BENEFITS_TEXT[lang]}</span>
-          </div>
+
           
           {/* 手機版功能按鈕 */}
           <div style={{ width: '100%', padding: '0 16px', display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -1268,6 +1262,14 @@ export default function Home() {
               </button>
 
 
+            </div>
+            
+            {/* 手機版職涯中心和訂閱方案按鈕 - 移動到共創實驗室下方 */}
+            <div style={{ width: '100%', padding: '0 16px', marginTop: '12px', display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'center' }}>
+              <button onClick={() => navigate('/profile')} style={{ width: '80%', maxWidth: '300px', padding: '12px', borderRadius: 10, background: '#00CFFF', color: '#fff', fontWeight: 700, fontSize: 14, textDecoration: 'none', border: '2px solid #00CFFF', cursor: 'pointer', textAlign: 'center', display: 'block', boxSizing: 'border-box' }}>
+                {lang==='zh-TW'?'💼 職涯中心':'zh-CN'===lang?'💼 职涯中心':'en'===lang?'💼 Career Center':'ja'===lang?'💼 キャリアセンター':'ko'===lang?'💼 커리어 센터':'th'===lang?'💼 ศูนย์อาชีพ':'vi'===lang?'💼 Trung tâm nghề nghiệp':'ms'===lang?'💼 Pusat Kerjaya':'💼 Career Center'}
+              </button>
+              <span href="/plans" style={{ width: '80%', maxWidth: '300px', padding: '12px', borderRadius: 10, background: '#6B5BFF', color: '#fff', fontWeight: 700, fontSize: 14, textDecoration: 'none', border: '2px solid #6B5BFF', cursor: 'pointer', textAlign: 'center', display: 'block', boxSizing: 'border-box' }}>{MEMBER_BENEFITS_TEXT[lang]}</span>
             </div>
           </div>
           
@@ -1406,13 +1408,6 @@ export default function Home() {
               </div>
               
               <div style={{ display: 'flex', flexDirection: 'column', gap: 18, marginBottom: 60, justifyContent: 'center', width: '100%' }}>
-                {/* 職涯中心和訂閱方案按鈕 */}
-                <div style={{ display: 'flex', flexDirection: 'row', gap: 18, justifyContent: 'center', marginBottom: 18 }}>
-                  <button onClick={() => navigate('/profile')} style={{ background: '#00CFFF', color: '#fff', fontWeight: 700, fontSize: 18, padding: '10px 28px', borderRadius: 10, boxShadow: '0 2px 8px #00CFFF33', textDecoration: 'none', border: '2px solid #00CFFF', cursor: 'pointer' }}>
-                    {lang==='zh-TW'?'💼 職涯中心':'zh-CN'===lang?'💼 职涯中心':'en'===lang?'💼 Career Center':'ja'===lang?'💼 キャリアセンター':'ko'===lang?'💼 커리어 센터':'th'===lang?'💼 ศูนย์อาชีพ':'vi'===lang?'💼 Trung tâm nghề nghiệp':'ms'===lang?'💼 Pusat Kerjaya':'💼 Career Center'}
-                  </button>
-                  <span href="/plans" style={{ background: '#6B5BFF', color: '#fff', fontWeight: 700, fontSize: 18, padding: '10px 28px', borderRadius: 10, boxShadow: '0 2px 8px #6B5BFF33', textDecoration: 'none', border: '2px solid #6B5BFF', cursor: 'pointer' }}>{MEMBER_BENEFITS_TEXT[lang]}</span>
-                </div>
                 <div style={{ display: 'flex', flexDirection: 'row', gap: 18, justifyContent: 'center' }}>
                   <div style={{ position: 'relative' }}>
                     <button 
