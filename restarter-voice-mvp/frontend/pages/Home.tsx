@@ -1153,6 +1153,14 @@ export default function Home() {
             </div>
           </div>
           
+          {/* 手機版職涯中心和訂閱方案按鈕 */}
+          <div style={{ width: '100%', padding: '0 16px', marginBottom: '16px', display: 'flex', flexDirection: 'column', gap: 12 }}>
+            <button onClick={() => navigate('/profile')} style={{ width: '100%', padding: '12px', borderRadius: 10, background: '#00CFFF', color: '#fff', fontWeight: 700, fontSize: 14, textDecoration: 'none', border: '2px solid #00CFFF', cursor: 'pointer', textAlign: 'center', display: 'block', boxSizing: 'border-box' }}>
+              {lang==='zh-TW'?'💼 職涯中心':'zh-CN'===lang?'💼 职涯中心':'en'===lang?'💼 Career Center':'ja'===lang?'💼 キャリアセンター':'ko'===lang?'💼 커리어 센터':'th'===lang?'💼 ศูนย์อาชีพ':'vi'===lang?'💼 Trung tâm nghề nghiệp':'ms'===lang?'💼 Pusat Kerjaya':'💼 Career Center'}
+            </button>
+            <span href="/plans" style={{ width: '100%', padding: '12px', borderRadius: 10, background: '#6B5BFF', color: '#fff', fontWeight: 700, fontSize: 14, textDecoration: 'none', border: '2px solid #6B5BFF', cursor: 'pointer', textAlign: 'center', display: 'block', boxSizing: 'border-box' }}>{MEMBER_BENEFITS_TEXT[lang]}</span>
+          </div>
+          
           {/* 手機版功能按鈕 */}
           <div style={{ width: '100%', padding: '0 16px', display: 'flex', flexDirection: 'column', gap: 12 }}>
             {/* 第一行：交友區 + 來聊天吧 */}
@@ -1263,13 +1271,7 @@ export default function Home() {
             </div>
           </div>
           
-          {/* 手機版額外按鈕 */}
-          <div style={{ width: '100%', padding: '20px 16px', display: 'flex', flexDirection: 'column', gap: 12, boxSizing: 'border-box' }}>
-            <button onClick={() => navigate('/profile')} style={{ width: '100%', padding: '12px', borderRadius: 10, background: '#00CFFF', color: '#fff', fontWeight: 700, fontSize: 14, textDecoration: 'none', border: '2px solid #00CFFF', cursor: 'pointer', textAlign: 'center', display: 'block', boxSizing: 'border-box' }}>
-              {lang==='zh-TW'?'💼 職涯中心':'zh-CN'===lang?'💼 职涯中心':'en'===lang?'💼 Career Center':'ja'===lang?'💼 キャリアセンター':'ko'===lang?'💼 커리어 센터':'th'===lang?'💼 ศูนย์อาชีพ':'vi'===lang?'💼 Trung tâm nghề nghiệp':'ms'===lang?'💼 Pusat Kerjaya':'💼 Career Center'}
-            </button>
-            <span href="/plans" style={{ width: '100%', padding: '12px', borderRadius: 10, background: '#6B5BFF', color: '#fff', fontWeight: 700, fontSize: 14, textDecoration: 'none', border: '2px solid #6B5BFF', cursor: 'pointer', textAlign: 'center', display: 'block', boxSizing: 'border-box' }}>{MEMBER_BENEFITS_TEXT[lang]}</span>
-          </div>
+
         </div>
       ) : (
         // 桌面版主內容
