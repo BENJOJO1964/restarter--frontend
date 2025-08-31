@@ -1753,43 +1753,7 @@ export default function RegisterPage() {
                         {renderRestarterRole(restarterRoleRight[lang])}
                     </div>
                 </div>
-                <div style={{
-                  width: 280,
-                  maxWidth: '98%',
-                  height: 280,
-                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                  borderRadius: '20px',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.3)'
-                }}>
-                  <div style={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    width: '200px',
-                    height: '200px',
-                    background: 'rgba(255, 255, 255, 0.1)',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    backdropFilter: 'blur(10px)',
-                    border: '2px solid rgba(255, 255, 255, 0.2)'
-                  }}>
-                    <div style={{
-                      fontSize: '64px',
-                      color: 'rgba(255, 255, 255, 0.9)',
-                      textAlign: 'center'
-                    }}>
-                      🚀
-                    </div>
-                  </div>
-                </div>
+                <img src="/right-hero.png" alt="right hero" style={{ width: 280, maxWidth: '98%', objectFit: 'contain' }} />
                 <div style={{ paddingBottom: 80, textAlign: 'center' }}>
                     <div style={{ color: '#fff', fontWeight: 700, fontSize: 22, margin: '12px 0 8px' }}>{t.heroRightMain}</div>
                     <div style={{ color: '#ffd700', fontWeight: 700, fontSize: 18 }}>{t.heroRightYellow}</div>
