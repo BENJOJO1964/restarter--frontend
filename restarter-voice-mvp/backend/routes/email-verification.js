@@ -55,9 +55,9 @@ router.post('/send-code', async (req, res) => {
 
     // 發送驗證碼郵件
     try {
-      // 優先使用 Resend 發送郵件
-      const mailOptions = {
-        from: 'onboarding@resend.dev',
+      // 優先使用 Gmail SMTP 發送郵件
+      const gmailMailOptions = {
+        from: `Restarter驗證系統 <${process.env.EMAIL_USER}>`,
         to: email,
         subject: 'Restarter - 電子郵件驗證',
         html: `
@@ -79,28 +79,22 @@ router.post('/send-code', async (req, res) => {
         `
       };
 
-      // 使用 Resend 發送
-      const result = await resend.emails.send(mailOptions);
+      const gmailResult = await transporter.sendMail(gmailMailOptions);
+      console.log('✅ 驗證碼郵件發送成功 (Gmail SMTP)');
+      console.log('郵件ID:', gmailResult.messageId);
 
-      if (result.data?.id) {
-        console.log('✅ 驗證碼郵件發送成功 (Resend)');
-        console.log('郵件ID:', result.data.id);
-
-        res.json({ 
-          success: true, 
-          message: '驗證碼已發送到您的電子郵件' 
-        });
-      } else {
-        throw new Error(result.error || 'Resend 發送失敗');
-      }
+      res.json({ 
+        success: true, 
+        message: '驗證碼已發送到您的電子郵件' 
+      });
 
     } catch (emailError) {
-      console.error('❌ Resend發送失敗，嘗試使用Gmail SMTP備用方案:', emailError.message);
+      console.error('❌ Gmail SMTP發送失敗，嘗試使用Resend備用方案:', emailError.message);
       
       try {
-        // 備用方案：使用 Gmail SMTP
-        const gmailMailOptions = {
-          from: `Restarter驗證系統 <${process.env.EMAIL_USER}>`,
+        // 備用方案：使用 Resend
+        const mailOptions = {
+          from: 'onboarding@resend.dev',
           to: email,
           subject: 'Restarter - 電子郵件驗證',
           html: `
@@ -122,17 +116,23 @@ router.post('/send-code', async (req, res) => {
           `
         };
 
-        const gmailResult = await transporter.sendMail(gmailMailOptions);
-        console.log('✅ 驗證碼郵件發送成功 (Gmail SMTP)');
-        console.log('郵件ID:', gmailResult.messageId);
+        // 使用 Resend 發送
+        const result = await resend.emails.send(mailOptions);
 
-        res.json({ 
-          success: true, 
-          message: '驗證碼已發送到您的電子郵件' 
-        });
+        if (result.data?.id) {
+          console.log('✅ 驗證碼郵件發送成功 (Resend)');
+          console.log('郵件ID:', result.data.id);
 
-      } catch (gmailError) {
-        console.error('❌ Gmail SMTP也失敗:', gmailError.message);
+          res.json({ 
+            success: true, 
+            message: '驗證碼已發送到您的電子郵件' 
+          });
+        } else {
+          throw new Error(result.error || 'Resend 發送失敗');
+        }
+
+      } catch (resendError) {
+        console.error('❌ Resend也失敗:', resendError.message);
         res.status(500).json({ 
           success: false, 
           message: '郵件服務暫時不可用，請稍後再試或聯繫客服' 

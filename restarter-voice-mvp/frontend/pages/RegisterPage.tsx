@@ -1753,7 +1753,7 @@ export default function RegisterPage() {
                         {renderRestarterRole(restarterRoleRight[lang])}
                     </div>
                 </div>
-                <img src="/right-hero.png" alt="right hero" style={{ width: 280, maxWidth: '98%', objectFit: 'contain' }} />
+                <img src="./right-hero.png" alt="right hero" style={{ width: 280, maxWidth: '98%', objectFit: 'contain' }} />
                 <div style={{ paddingBottom: 80, textAlign: 'center' }}>
                     <div style={{ color: '#fff', fontWeight: 700, fontSize: 22, margin: '12px 0 8px' }}>{t.heroRightMain}</div>
                     <div style={{ color: '#ffd700', fontWeight: 700, fontSize: 18 }}>{t.heroRightYellow}</div>
