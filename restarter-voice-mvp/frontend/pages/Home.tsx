@@ -1406,6 +1406,13 @@ export default function Home() {
               </div>
               
               <div style={{ display: 'flex', flexDirection: 'column', gap: 18, marginBottom: 60, justifyContent: 'center', width: '100%' }}>
+                {/* 職涯中心和訂閱方案按鈕 */}
+                <div style={{ display: 'flex', flexDirection: 'row', gap: 18, justifyContent: 'center', marginBottom: 18 }}>
+                  <button onClick={() => navigate('/profile')} style={{ background: '#00CFFF', color: '#fff', fontWeight: 700, fontSize: 18, padding: '10px 28px', borderRadius: 10, boxShadow: '0 2px 8px #00CFFF33', textDecoration: 'none', border: '2px solid #00CFFF', cursor: 'pointer' }}>
+                    {lang==='zh-TW'?'💼 職涯中心':'zh-CN'===lang?'💼 职涯中心':'en'===lang?'💼 Career Center':'ja'===lang?'💼 キャリアセンター':'ko'===lang?'💼 커리어 센터':'th'===lang?'💼 ศูนย์อาชีพ':'vi'===lang?'💼 Trung tâm nghề nghiệp':'ms'===lang?'💼 Pusat Kerjaya':'💼 Career Center'}
+                  </button>
+                  <span href="/plans" style={{ background: '#6B5BFF', color: '#fff', fontWeight: 700, fontSize: 18, padding: '10px 28px', borderRadius: 10, boxShadow: '0 2px 8px #6B5BFF33', textDecoration: 'none', border: '2px solid #6B5BFF', cursor: 'pointer' }}>{MEMBER_BENEFITS_TEXT[lang]}</span>
+                </div>
                 <div style={{ display: 'flex', flexDirection: 'row', gap: 18, justifyContent: 'center' }}>
                   <div style={{ position: 'relative' }}>
                     <button 
@@ -1582,12 +1589,12 @@ export default function Home() {
           </div>
           {/* 右側內容：mockup 圖片和來聊天吧按鈕 */}
           <div className="home-right-col" style={{ flex: 1, minWidth: 320, maxWidth: 520, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', paddingTop: 120, zIndex: 2 }}>
-            {/* 新增：上方按鈕區塊 */}
-            <div style={{ display: 'flex', gap: 18, marginBottom: 18, justifyContent: 'center', width: '100%', flexWrap: 'wrap', zIndex: 1000, position: 'relative' }}>
-              <button onClick={() => navigate('/profile')} style={{ background: '#00CFFF', color: '#fff', fontWeight: 700, fontSize: 18, padding: '10px 28px', borderRadius: 10, boxShadow: '0 2px 8px #00CFFF33', textDecoration: 'none', border: '2px solid #00CFFF', cursor: 'pointer', zIndex: 1001, position: 'relative' }}>
+            {/* 新增：上方按鈕區塊 - 確保在最頂層顯示 */}
+            <div style={{ display: 'flex', gap: 18, marginBottom: 18, justifyContent: 'center', width: '100%', flexWrap: 'wrap', zIndex: 9999, position: 'relative', marginTop: 0 }}>
+              <button onClick={() => navigate('/profile')} style={{ background: '#00CFFF', color: '#fff', fontWeight: 700, fontSize: 18, padding: '10px 28px', borderRadius: 10, boxShadow: '0 2px 8px #00CFFF33', textDecoration: 'none', border: '2px solid #00CFFF', cursor: 'pointer', zIndex: 10000, position: 'relative' }}>
                 {lang==='zh-TW'?'💼 職涯中心':'zh-CN'===lang?'💼 职涯中心':'en'===lang?'💼 Career Center':'ja'===lang?'💼 キャリアセンター':'ko'===lang?'💼 커리어 센터':'th'===lang?'💼 ศูนย์อาชีพ':'vi'===lang?'💼 Trung tâm nghề nghiệp':'ms'===lang?'💼 Pusat Kerjaya':'💼 Career Center'}
               </button>
-              <span href="/plans" style={{ background: '#6B5BFF', color: '#fff', fontWeight: 700, fontSize: 18, padding: '10px 28px', borderRadius: 10, boxShadow: '0 2px 8px #6B5BFF33', textDecoration: 'none', border: '2px solid #6B5BFF', cursor: 'pointer', zIndex: 1001, position: 'relative' }}>{MEMBER_BENEFITS_TEXT[lang]}</span>
+              <span href="/plans" style={{ background: '#6B5BFF', color: '#fff', fontWeight: 700, fontSize: 18, padding: '10px 28px', borderRadius: 10, boxShadow: '0 2px 8px #6B5BFF33', textDecoration: 'none', border: '2px solid #6B5BFF', cursor: 'pointer', zIndex: 10000, position: 'relative' }}>{MEMBER_BENEFITS_TEXT[lang]}</span>
             </div>
             {/* 天氣組件 - 移動到訂閱方案按鈕下方 */}
             <div style={{ marginBottom: 18, width: '100%', maxWidth: 300 }}>
