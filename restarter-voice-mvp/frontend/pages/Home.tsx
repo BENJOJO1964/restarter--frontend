@@ -1265,11 +1265,11 @@ export default function Home() {
             </div>
             
             {/* 手機版職涯中心和訂閱方案按鈕 - 移動到共創實驗室下方 */}
-            <div style={{ width: '100%', padding: '0 16px', marginTop: '12px', display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'center' }}>
-              <button onClick={() => navigate('/profile')} style={{ width: '80%', maxWidth: '300px', padding: '12px', borderRadius: 10, background: '#00CFFF', color: '#fff', fontWeight: 700, fontSize: 14, textDecoration: 'none', border: '2px solid #00CFFF', cursor: 'pointer', textAlign: 'center', display: 'block', boxSizing: 'border-box' }}>
+            <div style={{ width: '100%', padding: '0 16px', marginTop: '20px', marginBottom: '20px', display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'center' }}>
+              <button onClick={() => navigate('/profile')} style={{ width: '90%', maxWidth: '350px', padding: '16px', borderRadius: 12, background: '#00CFFF', color: '#fff', fontWeight: 700, fontSize: 16, textDecoration: 'none', border: '2px solid #00CFFF', cursor: 'pointer', textAlign: 'center', display: 'block', boxSizing: 'border-box', boxShadow: '0 4px 12px rgba(0, 207, 255, 0.3)' }}>
                 {lang==='zh-TW'?'💼 職涯中心':'zh-CN'===lang?'💼 职涯中心':'en'===lang?'💼 Career Center':'ja'===lang?'💼 キャリアセンター':'ko'===lang?'💼 커리어 센터':'th'===lang?'💼 ศูนย์อาชีพ':'vi'===lang?'💼 Trung tâm nghề nghiệp':'ms'===lang?'💼 Pusat Kerjaya':'💼 Career Center'}
               </button>
-              <span href="/plans" style={{ width: '80%', maxWidth: '300px', padding: '12px', borderRadius: 10, background: '#6B5BFF', color: '#fff', fontWeight: 700, fontSize: 14, textDecoration: 'none', border: '2px solid #6B5BFF', cursor: 'pointer', textAlign: 'center', display: 'block', boxSizing: 'border-box' }}>{MEMBER_BENEFITS_TEXT[lang]}</span>
+              <button onClick={() => navigate('/plans')} style={{ width: '90%', maxWidth: '350px', padding: '16px', borderRadius: 12, background: '#6B5BFF', color: '#fff', fontWeight: 700, fontSize: 16, textDecoration: 'none', border: '2px solid #6B5BFF', cursor: 'pointer', textAlign: 'center', display: 'block', boxSizing: 'border-box', boxShadow: '0 4px 12px rgba(107, 91, 255, 0.3)' }}>{MEMBER_BENEFITS_TEXT[lang]}</button>
             </div>
           </div>
           
