@@ -57,7 +57,7 @@ router.post('/send-code', async (req, res) => {
     try {
       // 直接使用 Gmail SMTP 發送郵件
       const gmailMailOptions = {
-        from: `Restarter驗證系統 <${process.env.EMAIL_USER}>`,
+        from: 'Restarter驗證系統 <noreply.restarter@gmail.com>',
         to: email,
         subject: 'Restarter - 電子郵件驗證',
         html: `
